@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>André Luiz Pianca | Portfólio Interativo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #FAFAFC; 
+            color: #1E293B; 
+        }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(8px); 
+            border: 1px solid rgba(226, 232, 240, 0.8); 
+            border-radius: 1rem; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.05);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            height: 280px; 
+        }
+        /* Estilos para animações de pulso térmico no SVG */
+        @keyframes thermal-flow {
+            0% { stroke-dashoffset: 24; }
+            100% { stroke-dashoffset: 0; }
+        }
+        .flow-line {
+            stroke-dasharray: 8, 4;
+            animation: thermal-flow 2s linear infinite;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+                <h1 class="text-lg font-extrabold tracking-tight text-slate-900">ANDRÉ LUIZ PIANCA</h1>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-semibold text-slate-600">
+                <a href="#perfil" class="hover:text-blue-600 transition-colors">Perfil</a>
+                <a href="#experiencia" class="hover:text-blue-600 transition-colors">Experiência</a>
+                <a href="#modelo-termico" class="hover:text-blue-600 transition-colors">Modelo EMA-nano</a>
+                <a href="#extracurriculares" class="hover:text-blue-600 transition-colors">Extracurriculares</a>
+                <a href="#formacao" class="hover:text-blue-600 transition-colors">Formação</a>
+                <a href="#skills" class="hover:text-blue-600 transition-colors">Competências</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-6 space-y-12">
+
+        <!-- Header / Perfil Executivo -->
+        <section id="perfil" class="pt-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div class="lg:col-span-2 space-y-6">
+                <div class="space-y-3">
+                    <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">
+                        <i class="fa-solid fa-atom"></i> Físico & Engenheiro em Formação | UNICAMP
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Transformando física complexa em inovação tecnológica.
+                    </h2>
+                </div>
+                <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+                    Físico e Engenheiro Físico em formação pela UNICAMP, especializado em modelagem física, simulações computacionais e instrumentação científica. Com histórico sólido em sistemas criogênicos e experiência prática no ensino e mediação, busco aplicar minha curiosidade técnica e visão analítica para impulsionar projetos de P&D que agreguem valor estratégico.
+                </p>
+                
+                <!-- Contact and Portfolio Badges -->
+                <div class="flex flex-wrap gap-3 text-xs sm:text-sm font-medium text-slate-600">
+                    <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg"><i class="fa-solid fa-map-pin text-blue-600"></i> Campinas, SP</span>
+                    <a href="mailto:andre-lpianca@proton.me" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors"><i class="fa-solid fa-envelope text-blue-600"></i> andre-lpianca@proton.me</a>
+                    <a href="https://linkedin.com/in/andre-lpianca" target="_blank" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors"><i class="fa-brands fa-linkedin text-blue-600"></i> LinkedIn</a>
+                    <a href="https://github.com/andrlupi" target="_blank" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors"><i class="fa-brands fa-github text-blue-600"></i> GitHub</a>
+                    <a href="https://orcid.org/0009-0005-9084-688X" target="_blank" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors"><i class="fa-brands fa-orcid text-blue-600"></i> ORCID</a>
+                </div>
+            </div>
+
+            <!-- Profile Overview Quick Card -->
+            <div class="glass-card p-6 shadow-sm border-l-4 border-blue-600 bg-white space-y-4">
+                <h3 class="font-bold text-slate-800 uppercase text-xs tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-blue-600"></i> Status Acadêmico (UNICAMP)
+                </h3>
+                <div class="space-y-3 text-xs sm:text-sm">
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                        <div class="font-bold text-slate-800">Engenharia Física</div>
+                        <div class="text-xs text-slate-500 mt-1">Conclusão Prevista: <span class="font-semibold text-blue-600">Dez 2028</span></div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                        <div class="font-bold text-slate-800">Física (Bacharelado)</div>
+                        <div class="text-xs text-slate-500 mt-1">Conclusão Prevista: <span class="font-semibold text-blue-600">Dez 2026</span></div>
+                    </div>
+                    <div class="pt-2">
+                        <div class="flex justify-between text-xs font-semibold text-slate-600 mb-1">
+                            <span>Inglês (Avançado)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-1.5">
+                            <div class="bg-blue-600 h-1.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiência Profissional -->
+        <section id="experiencia" class="space-y-8">
+            <div class="border-t border-slate-100 pt-8">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-briefcase text-blue-600"></i> Experiência Profissional
+                </h3>
+                <p class="text-slate-600 max-w-3xl">Histórico focado em desenvolvimento de engenharia física, infraestrutura criogênica de ponta e divulgação científica.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- CNPEM Card -->
+                <div class="glass-card p-6 bg-white flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-4">
+                            <div>
+                                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Estagiário - P&D em Sistemas Criogênicos</span>
+                                <h4 class="font-extrabold text-slate-900 text-lg mt-1">CNPEM - Centro Nacional de Pesquisa em Energia e Materiais</h4>
+                            </div>
+                            <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full whitespace-nowrap">2023</span>
+                        </div>
+                        <p class="text-xs font-medium text-slate-500 mb-4"><i class="fa-solid fa-calendar-days mr-1"></i> Abr. 2023 - Dez. 2023 | Campinas, SP</p>
+                        <ul class="text-sm text-slate-600 space-y-3">
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-1">▪</span>
+                                <span>Desenvolvimento e validação de modelo térmico <strong>lumped-mass</strong> para o sistema criogênico da linha <strong>EMA-nano (Sirius)</strong>, garantindo a previsibilidade da temperatura de operação e tempo de resfriamento.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-1">▪</span>
+                                <span>Definição estratégica de parâmetros de resistência térmica como <strong>constraints de engenharia</strong>, antecipando e mitigando restrições de desempenho durante a fase de projeto do sistema.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-1">▪</span>
+                                <span>Apresentação dos resultados em formato de <strong>flash talk</strong> durante o V Congresso de Estudantes do CNPEM.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Lumped-Mass</span>
+                        <span class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Modelagem Térmica</span>
+                        <span class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Sistemas Criogênicos</span>
+                        <span class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Sirius</span>
+                    </div>
+                </div>
+
+                <!-- Museu Exploratório Card -->
+                <div class="glass-card p-6 bg-white flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-4">
+                            <div>
+                                <span class="text-xs font-bold text-green-600 uppercase tracking-widest">Estagiário - Mediação Científica</span>
+                                <h4 class="font-extrabold text-slate-900 text-lg mt-1">Museu Exploratório de Ciências da UNICAMP</h4>
+                            </div>
+                            <span class="text-xs font-semibold bg-green-50 text-green-700 px-2.5 py-1 rounded-full whitespace-nowrap">Ativo</span>
+                        </div>
+                        <p class="text-xs font-medium text-slate-500 mb-4"><i class="fa-solid fa-calendar-days mr-1"></i> Mai. 2025 - Presente | Campinas, SP</p>
+                        <ul class="text-sm text-slate-600 space-y-3">
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 mt-1">▪</span>
+                                <span>Condução de demonstrações experimentais de ciências para públicos de diferentes níveis de escolaridade.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 mt-1">▪</span>
+                                <span>Adaptação de conceitos físicos complexos em uma linguagem acessível e lúdica para o público geral.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-green-500 mt-1">▪</span>
+                                <span>Suporte operacional, logístico e no desenvolvimento de novas atividades educativas do museu.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Demonstrações Experimentais</span>
+                        <span class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Mediação</span>
+                        <span class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Planejamento Operacional</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estudo de Caso: Modelo Térmico EMA-nano (Sirius) -->
+        <section id="modelo-termico" class="space-y-6">
+            <div class="border-t border-slate-100 pt-8">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-network-wired text-blue-600"></i> Modelo de Engenharia: EMA-nano (Sirius)
+                </h3>
+                <p class="text-slate-600 max-w-3xl">Representação conceitual do modelo térmico <em>lumped-mass</em> desenvolvido para modelar a dinâmica de resfriamento e temperatura de operação no CNPEM.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Descrição Técnica -->
+                <div class="glass-card p-6 bg-white space-y-4 flex flex-col justify-between border-t-4 border-blue-600">
+                    <div>
+                        <h4 class="font-extrabold text-slate-800 text-sm tracking-wider uppercase mb-2">Fundamento Físico</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            No projeto criogênico, modelamos o sistema dividindo-o em componentes homogêneos de massa concentrada (lumped-mass). A dinâmica de transição de temperatura $T(t)$ depende intrinsecamente das capacitâncias térmicas ($C_i$) dos materiais e das resistências térmicas de contato e radiação ($R_{ij}$).
+                        </p>
+                        <div class="mt-4 p-3 bg-blue-50/50 rounded-lg border border-blue-100 space-y-2 text-xs">
+                            <div class="flex justify-between font-semibold text-slate-700">
+                                <span>Ambiente de Experimentos:</span>
+                                <span class="text-blue-600">Fase Criogênica (&lt; 10K)</span>
+                            </div>
+                            <div class="flex justify-between font-semibold text-slate-700">
+                                <span>Constante de tempo (&tau;):</span>
+                                <span class="text-blue-600">&tau; = R_th &times; C_th</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-[11px] text-slate-400 italic">
+                        *A abordagem MBSE (Model-Based Systems Engineering) reduziu riscos de subdimensionamento estrutural.
+                    </div>
+                </div>
+
+                <!-- Infográfico Esquemático SVG -->
+                <div class="lg:col-span-2 glass-card p-6 bg-white flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-extrabold text-slate-800 text-sm tracking-wider uppercase">Esquema das Interfaces de Resistência e Fluxo Térmico</h4>
+                        <span class="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-bold uppercase">Esquema de Simulação</span>
+                    </div>
+                    <div class="flex justify-center items-center py-4 bg-slate-50 rounded-xl border border-slate-100 min-h-[220px]">
+                        <svg class="w-full max-w-lg h-auto" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Bloco Fonte Fria (Criostato) -->
+                            <rect x="20" y="50" width="100" height="100" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+                            <text x="70" y="95" fill="#1D4ED8" font-family="Inter" font-size="11" font-weight="bold" text-anchor="middle">Criostato</text>
+                            <text x="70" y="115" fill="#1D4ED8" font-family="Inter" font-size="10" text-anchor="middle">T_fria (≈ 4 K)</text>
+
+                            <!-- Seta de Fluxo 1 -->
+                            <line x1="120" y1="100" x2="200" y2="100" stroke="#94A3B8" stroke-dasharray="4 4" stroke-width="2"/>
+                            <!-- Animação do fluxo térmico -->
+                            <path d="M 120 100 L 200 100" stroke="#3B82F6" stroke-width="2" class="flow-line" />
+                            <text x="160" y="85" fill="#64748B" font-family="Inter" font-size="9" font-weight="bold" text-anchor="middle">R_contato (R1)</text>
+
+                            <!-- Bloco Linha EMA-nano (Estação de Amostra) -->
+                            <rect x="200" y="50" width="100" height="100" rx="8" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
+                            <text x="250" y="95" fill="#15803D" font-family="Inter" font-size="11" font-weight="bold" text-anchor="middle">Estação</text>
+                            <text x="250" y="115" fill="#15803D" font-family="Inter" font-size="10" text-anchor="middle">EMA-nano (C1)</text>
+
+                            <!-- Seta de Fluxo 2 -->
+                            <line x1="300" y1="100" x2="380" y2="100" stroke="#94A3B8" stroke-dasharray="4 4" stroke-width="2"/>
+                            <path d="M 300 100 L 380 100" stroke="#EF4444" stroke-width="2" class="flow-line" />
+                            <text x="340" y="85" fill="#64748B" font-family="Inter" font-size="9" font-weight="bold" text-anchor="middle">R_radiação (R2)</text>
+
+                            <!-- Bloco Ambiente Exterior -->
+                            <rect x="380" y="50" width="100" height="100" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+                            <text x="430" y="95" fill="#B91C1C" font-family="Inter" font-size="11" font-weight="bold" text-anchor="middle">Ambiente</text>
+                            <text x="430" y="115" fill="#B91C1C" font-family="Inter" font-size="10" text-anchor="middle">Exterior (293 K)</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atividades Extracurriculares -->
+        <section id="extracurriculares" class="space-y-8">
+            <div class="border-t border-slate-100 pt-8">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-flask-vial text-blue-600"></i> Atividades Extracurriculares
+                </h3>
+                <p class="text-slate-600 max-w-3xl">Atividades de monitoria acadêmica de graduação na UNICAMP e liderança estudantil no Instituto de Física.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Monitoria Física Exp II -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-1 mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Monitoria</span>
+                            <span class="text-xs text-slate-400">2025</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">F 259 - Introdução à Física Experimental II</h4>
+                        <p class="text-xs font-semibold text-slate-500 mb-3">IFGW - UNICAMP</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Orientação de grupos acadêmicos de graduação na aplicação de metodologias analíticas, tratamento estatístico de dados experimentais e desenvolvimento de relatórios científicos rigorosos.</p>
+                    </div>
+                    <span class="text-xs font-semibold text-blue-600 mt-4 block"><i class="fa-solid fa-chart-bar mr-1"></i> Rigor Científico & Dados</span>
+                </div>
+
+                <!-- Monitoria Estrutura da Matéria II -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-1 mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Monitoria</span>
+                            <span class="text-xs text-slate-400">2024</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">F 489 - Estrutura da Matéria II</h4>
+                        <p class="text-xs font-semibold text-slate-500 mb-3">IFGW - UNICAMP</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Facilitação pedagógica e suporte conceitual em tópicos de Física Moderna (Equação de Schrödinger, átomo de Hidrogênio, Hartree, espectroscopia, estado sólido e física nuclear).</p>
+                    </div>
+                    <span class="text-xs font-semibold text-blue-600 mt-4 block"><i class="fa-solid fa-graduation-cap mr-1"></i> Física Moderna & Quântica</span>
+                </div>
+
+                <!-- Atlética -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-1 mb-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Liderança</span>
+                            <span class="text-xs text-slate-400">2021-2023</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">Atlética "César Lattes"</h4>
+                        <p class="text-xs font-semibold text-slate-500 mb-3">Instituto de Física - UNICAMP</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Gestão operacional de eventos e coordenação da logística de competições esportivas, promovendo o desenvolvimento de liderança ativa, integração e forte trabalho em equipe.</p>
+                    </div>
+                    <span class="text-xs font-semibold text-amber-600 mt-4 block"><i class="fa-solid fa-people-group mr-1"></i> Logística & Trabalho em Equipe</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formação e Certificações -->
+        <section id="formacao" class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div class="space-y-6">
+                <div class="border-t border-slate-100 pt-8">
+                    <h3 class="text-2xl font-extrabold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-blue-600"></i> Formação Acadêmica
+                    </h3>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-5 bg-white rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Graduação em Engenharia Física</h4>
+                                <p class="text-sm text-slate-600">Universidade Estadual de Campinas (UNICAMP)</p>
+                                <p class="text-xs text-slate-400 mt-1">Campinas, SP</p>
+                            </div>
+                            <span class="text-xs font-bold bg-blue-50 text-blue-700 px-2 py-1 rounded whitespace-nowrap">Previsão: Dez 2028</span>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-white rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Graduação em Física</h4>
+                                <p class="text-sm text-slate-600">Universidade Estadual de Campinas (UNICAMP)</p>
+                                <p class="text-xs text-slate-400 mt-1">Campinas, SP</p>
+                            </div>
+                            <span class="text-xs font-bold bg-blue-50 text-blue-700 px-2 py-1 rounded whitespace-nowrap">Previsão: Dez 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-white rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Ensino Médio e Técnico em Mecânica</h4>
+                                <p class="text-sm text-slate-600">Colégio Técnico de Limeira (COTIL - UNICAMP)</p>
+                                <p class="text-xs text-slate-400 mt-1">Limeira, SP</p>
+                            </div>
+                            <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded whitespace-nowrap">Concluído: 2015</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="space-y-6">
+                <div class="border-t border-slate-100 pt-8">
+                    <h3 class="text-2xl font-extrabold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-award text-blue-600"></i> Certificações
+                    </h3>
+                </div>
+
+                <div class="glass-card p-6 bg-white space-y-4 max-h-[340px] overflow-y-auto pr-4">
+                    <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                        <div class="text-blue-500 mt-1"><i class="fa-solid fa-wifi"></i></div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-900">Industrial Internet of Things (IIoT)</h5>
+                            <p class="text-xs text-slate-500">University of Michigan (2026)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                        <div class="text-blue-500 mt-1"><i class="fa-solid fa-cubes"></i></div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-900">Digital Manufacturing & Design</h5>
+                            <p class="text-xs text-slate-500">University at Buffalo (2026)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                        <div class="text-blue-500 mt-1"><i class="fa-solid fa-industry"></i></div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-900">Advanced Manufacturing Process Analysis</h5>
+                            <p class="text-xs text-slate-500">University at Buffalo (2026)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                        <div class="text-blue-500 mt-1"><i class="fa-solid fa-diagram-project"></i></div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-900">Digital Thread: Implementation</h5>
+                            <p class="text-xs text-slate-500">University at Buffalo (2026)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                        <div class="text-blue-500 mt-1"><i class="fa-solid fa-sitemap"></i></div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-900">Digital Thread: Components</h5>
+                            <p class="text-xs text-slate-500">University at Buffalo (2026)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                        <div class="text-blue-500 mt-1"><i class="fa-solid fa-chart-line"></i></div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-900">Data-Driven Decision Making (DDDM)</h5>
+                            <p class="text-xs text-slate-500">The State University of New York (2025)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                        <div class="text-blue-500 mt-1"><i class="fa-solid fa-microchip"></i></div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-900">Qiskit Global Summer School: The Path to Utility</h5>
+                            <p class="text-xs text-slate-500">IBM (2024)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competências & Idiomas -->
+        <section id="skills" class="space-y-8 pb-12">
+            <div class="border-t border-slate-100 pt-8">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-compass-drafting text-blue-600"></i> Competências & Stack Técnico
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Radar Chart Visualizer -->
+                    <div class="glass-card p-6 bg-white shadow-sm flex flex-col justify-center items-center">
+                        <h4 class="font-bold text-slate-800 text-xs tracking-wider uppercase mb-4">Análise Radial de Competências</h4>
+                        <div class="chart-container">
+                            <canvas id="skillsRadarChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Skills Detailed Text & Languages -->
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                <span class="block text-lg mb-1"><i class="fa-solid fa-code text-blue-500"></i></span>
+                                <h5 class="font-bold text-xs uppercase tracking-tight text-slate-800">Programação</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Python, Julia, C, MATLAB</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                <span class="block text-lg mb-1"><i class="fa-solid fa-cubes-stacked text-blue-500"></i></span>
+                                <h5 class="font-bold text-xs uppercase tracking-tight text-slate-800">CAD & Simulação</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Autodesk Fusion 360, AutoCAD, Autodesk Inventor, Simulink, Simscape, Ansys, Desenho Técnico</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                <span class="block text-lg mb-1"><i class="fa-solid fa-temperature-arrow-down text-blue-500"></i></span>
+                                <h5 class="font-bold text-xs uppercase tracking-tight text-slate-800">Instrumentação & Física</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Criogenia, Vácuo, Modelagem Térmica, Instrumentação Geral</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg border border-slate-200">
+                                <span class="block text-lg mb-1"><i class="fa-solid fa-comments text-blue-500"></i></span>
+                                <h5 class="font-bold text-xs uppercase tracking-tight text-slate-800">Soft Skills & Ensino</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Divulgação Científica, Trabalho em Equipe, Planejamento de Projetos</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Idiomas -->
+                        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                            <h4 class="font-extrabold text-slate-800 text-xs tracking-wider uppercase flex items-center gap-2">
+                                <i class="fa-solid fa-language text-blue-600"></i> Idiomas
+                            </h4>
+                            <div class="grid grid-cols-2 gap-4 text-xs">
+                                <div class="flex justify-between border-b border-slate-100 pb-1">
+                                    <span class="font-medium text-slate-600">Português:</span>
+                                    <span class="font-bold text-slate-800">Nativo</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-100 pb-1">
+                                    <span class="font-medium text-slate-600">Inglês:</span>
+                                    <span class="font-bold text-slate-800">Avançado</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-100 pb-1">
+                                    <span class="font-medium text-slate-600">Espanhol:</span>
+                                    <span class="font-bold text-slate-800">Básico</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-100 pb-1">
+                                    <span class="font-medium text-slate-600">Chinês:</span>
+                                    <span class="font-bold text-slate-800">Básico</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="space-y-2">
+                <h2 class="text-xl font-bold">André Luiz Pianca</h2>
+                <p class="text-slate-400 text-xs font-semibold">Físico & Engenheiro em Formação | UNICAMP</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-xs text-slate-500 mb-4 uppercase tracking-widest">Disponível para Projetos de Alta Tecnologia e P&D</p>
+                <div class="flex gap-4 justify-center md:justify-end">
+                    <a href="mailto:andre-lpianca@proton.me" class="bg-blue-600 px-6 py-2.5 rounded-full text-xs font-extrabold hover:bg-blue-700 transition shadow-md uppercase tracking-wider">Entrar em Contato</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Skills Radar Chart Integration
+        const ctxRadar = document.getElementById('skillsRadarChart').getContext('2d');
+        const radarData = {
+            labels: ['Programação', 'CAD & Simulação', 'Instrumentação & Física', 'Criogenia & Vácuo', 'Divulgação & Didática', 'Trabalho em Equipe'],
+            datasets: [{
+                label: 'Perfis de Dominância',
+                data: [90, 88, 92, 85, 90, 85],
+                fill: true,
+                backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                borderColor: 'rgb(59, 130, 246)',
+                pointBackgroundColor: 'rgb(59, 130, 246)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(59, 130, 246)',
+                borderWidth: 2
+            }]
+        };
+
+        const radarConfig = {
+            type: 'radar',
+            data: radarData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(226, 232, 240, 0.6)' },
+                        grid: { color: 'rgba(226, 232, 240, 0.6)' },
+                        pointLabels: {
+                            font: { size: 9, weight: 'bold', family: 'Inter' },
+                            color: '#475569'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: { display: false }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        };
+
+        window.onload = function() {
+            new Chart(ctxRadar, radarConfig);
+        };
+    </script>
+</body>
+</html>
