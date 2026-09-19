@@ -32,6 +32,9 @@ coverImage: "/figures/codesign_pareto_study.png"
 
 Este projeto representa o desenvolvimento de uma infraestrutura computacional modular em **Julia 1.10+** voltada ao **co-design termo-mecânico** da nanoestação da linha de luz **EMA** (*Emerging Materials at Extreme Conditions*) do **Sirius / Laboratório Nacional de Luz Síncrotron (LNLS/CNPEM)**.
 
+> 💡 **Origem Institucional e Motivação Científica:**  
+> Este framework nasceu e evoluiu a partir do trabalho prático de pesquisa e modelagem desenvolvido durante o meu **estágio de P&D em Sistemas Criogênicos no CNPEM / Sirius (Linha EMA-nano)** em 2023. A motivação deste projeto (e em especial da branch `dev/thermo-mechanical-redesign`) foi construir e aprimorar sobre os alicerces desse estágio: superar os modelos lineares invariantes no tempo (LTI) com capacidade constante através de um integrador não-linear de Rosenbrock $L$-estável, modelar a mecânica de contato elastoplástica da folha de Índio e a condutância por gás de troca de hélio, e mapear a fronteira de Pareto termo-mecânica em tripé isostático sob uma biblioteca científica aberta e reproduzível.
+
 ---
 
 ## 1. O Desafio Físico e de Engenharia
