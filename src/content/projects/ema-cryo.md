@@ -6,7 +6,7 @@ featured: true
 order: 1
 publishDate: "2024-04"
 repoUrl: "https://github.com/andrlupi/EMA-C_LM-Cryo-Modelling"
-docUrl: "https://github.com/andrlupi/EMA-C_LM-Cryo-Modelling/blob/main/docs/RELATORIO_TECNICO_REDESIGN.md"
+docUrl: "https://github.com/andrlupi/EMA-C_LM-Cryo-Modelling/blob/dev/thermo-mechanical-redesign/docs/RELATORIO_TECNICO_REDESIGN.md"
 tags: ["Julia 1.10", "Sirius / LNLS", "Criogenia", "Modelagem Não-Linear", "Co-Design Termo-Mecânico", "MBSE", "NIST Data"]
 category: "Física & Criogenia"
 metrics:

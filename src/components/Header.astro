@@ -5,7 +5,6 @@ const navLinks = [
   { name: 'Início', href: getUrl('/') },
   { name: 'Sobre & CV', href: getUrl('/sobre') },
   { name: 'Projetos', href: getUrl('/projetos') },
-  { name: 'EMA-C Sirius', href: getUrl('/projetos/ema-cryo'), isHighlight: true },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -44,11 +43,6 @@ const currentPath = Astro.url.pathname;
               }`}
             >
               {link.name}
-              {link.isHighlight && (
-                <span class="text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.2 rounded bg-ctp-sapphire/20 text-ctp-sky border border-ctp-sapphire/40">
-                  Destaque
-                </span>
-              )}
             </a>
           );
         })
@@ -123,12 +117,6 @@ const currentPath = Astro.url.pathname;
         </svg>
       </button>
 
-      <a
-        href={getUrl('/projetos/ema-cryo')}
-        class="text-[11px] font-bold text-ctp-sky bg-ctp-surface0 px-2 py-1 rounded border border-ctp-sapphire/30"
-      >
-        EMA-C
-      </a>
       <button
         id="mobile-menu-btn"
         type="button"

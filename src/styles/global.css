@@ -184,3 +184,23 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--ctp-surface1));
 }
+
+/* Formatação e Estilização de Fórmulas Matemáticas KaTeX */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.75rem 0;
+  margin: 1.25rem 0 !important;
+  text-align: center;
+}
+
+.katex {
+  font-size: 1.1em;
+  text-rendering: auto;
+}
+
+/* Garante contraste perfeito do KaTeX com tema Catppuccin */
+.katex .mord, .katex .mrel, .katex .mbin, .katex .mop {
+  color: inherit;
+}
+
