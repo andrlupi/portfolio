@@ -1,102 +1,22 @@
 ---
-import { getUrl } from '../utils/url';
+// Hero Component - Minimalista e direto
 ---
 
-<section class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-ctp-surface0/80">
+<section class="relative pt-16 pb-16 md:pt-24 md:pb-20 overflow-hidden border-b border-ctp-surface0/80">
   <!-- Efeito de Grade de Fundo Sutis -->
   <div class="absolute inset-0 bg-[linear-gradient(to_right,#3132441a_1px,transparent_1px),linear-gradient(to_bottom,#3132441a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-    <div class="space-y-6 max-w-4xl">
-      <!-- Badges de Especialidade -->
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="badge-tech">
-          <svg class="w-3.5 h-3.5 text-ctp-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          Física &amp; Engenharia &bull; UNICAMP
-        </span>
-        <span class="badge-dark">
-          <span class="w-1.5 h-1.5 rounded-full bg-ctp-sapphire"></span>
-          Processos &bull; Qualidade &bull; Hardware BR
-        </span>
-        <span class="badge-dark">
-          <span class="w-1.5 h-1.5 rounded-full bg-ctp-blue"></span>
-          Instrumentação, Modelagem e Simulação
-        </span>
-      </div>
-
+    <div class="space-y-6 max-w-3xl">
       <!-- Título Principal -->
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-ctp-text leading-[1.1]">
         Transformando <span class="gradient-text-cryo">física complexa</span> em inovação e <span class="gradient-text-blue">engenharia de ponta</span>.
       </h1>
 
       <!-- Resumo Profissional Fiel ao Currículo -->
-      <p class="text-base sm:text-lg text-ctp-subtext1 leading-relaxed max-w-3xl">
+      <p class="text-base sm:text-lg text-ctp-subtext1 leading-relaxed">
         Físico e Engenheiro Físico em formação pela <strong class="text-ctp-text">UNICAMP</strong>, com sólida base em modelagem física, simulações computacionais e instrumentação científica. Com histórico no desenvolvimento de sistemas criogênicos, gestão de processos e conformidade regulatória, aplico curiosidade técnica e visão analítica para impulsionar projetos de P&amp;D que agreguem valor estratégico.
       </p>
-
-      <!-- Botões de Ação com getUrl() -->
-      <div class="flex flex-wrap items-center gap-3 pt-2">
-        <a
-          href={getUrl('/projetos/ema-cryo')}
-          class="px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold text-ctp-crust bg-gradient-to-r from-ctp-sapphire to-ctp-sky hover:from-ctp-sky hover:to-ctp-teal transition-all shadow-lg shadow-ctp-sapphire/20 hover:shadow-ctp-sky/30 flex items-center gap-2 group"
-        >
-          <span>Estudo de Caso: EMA-C Sirius</span>
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-
-        <a
-          href={getUrl('/sobre')}
-          class="px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-ctp-text bg-ctp-surface0/80 hover:bg-ctp-surface1 border border-ctp-surface1 transition-all flex items-center gap-2"
-        >
-          <svg class="w-4 h-4 text-ctp-sapphire" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span>Ver Currículo &amp; Trajetória</span>
-        </a>
-
-        <a
-          href="https://github.com/andrlupi"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="p-3 rounded-xl text-ctp-subtext0 hover:text-ctp-text bg-ctp-surface0/60 hover:bg-ctp-surface1 border border-ctp-surface0 transition-all"
-          aria-label="GitHub de André Luiz Pianca"
-        >
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-          </svg>
-        </a>
-      </div>
-
-      <!-- Barra de Métricas Chave de Engenharia & Formação -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
-        <div class="glass-card-interactive p-3.5 border-l-2 border-l-ctp-sapphire">
-          <div class="text-xl sm:text-2xl font-black text-ctp-sky font-mono">Hardware BR</div>
-          <div class="text-[11px] font-bold text-ctp-text mt-0.5">Qualidade &amp; Processos</div>
-          <div class="text-[10px] text-ctp-subtext0">Dispositivos médicos &bull; Ativo</div>
-        </div>
-
-        <div class="glass-card-interactive p-3.5 border-l-2 border-l-ctp-blue">
-          <div class="text-xl sm:text-2xl font-black text-ctp-blue font-mono">Sirius (LNLS)</div>
-          <div class="text-[11px] font-bold text-ctp-text mt-0.5">P&amp;D em Criogenia</div>
-          <div class="text-[10px] text-ctp-subtext0">Linha EMA-nano &bull; CNPEM</div>
-        </div>
-
-        <div class="glass-card-interactive p-3.5 border-l-2 border-l-ctp-teal">
-          <div class="text-xl sm:text-2xl font-black text-ctp-teal font-mono">21×</div>
-          <div class="text-[11px] font-bold text-ctp-text mt-0.5">Condutância da Junta</div>
-          <div class="text-[10px] text-ctp-subtext0">Folha de Índio sob P &ge; 2.5 MPa</div>
-        </div>
-
-        <div class="glass-card-interactive p-3.5 border-l-2 border-l-ctp-mauve">
-          <div class="text-xl sm:text-2xl font-black text-ctp-mauve font-mono">UNICAMP</div>
-          <div class="text-[11px] font-bold text-ctp-text mt-0.5">Física &bull; Eng. Física</div>
-          <div class="text-[10px] text-ctp-subtext0">Previsão: Jul 2027 / Dez 2028</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
