@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getUrl } from '../utils/url';
 import '../styles/global.css';
 
 interface Props {
@@ -10,12 +11,13 @@ interface Props {
 }
 
 const {
-  title = 'André Luiz Pianca | Físico & Engenheiro Físico',
-  description = 'Portfólio de André Luiz Pianca (UNICAMP) - Especialista em Modelagem Criogênica, Simulação Numérica Não-Linear, Co-Design Termo-Mecânico e Instrumentação Científica.',
+  title = 'André Luiz Pianca | Físico & Engenheiro Físico (UNICAMP)',
+  description = 'Física e Engenharia · Processos, Qualidade, Instrumentação, Modelagem e Simulação · UNICAMP',
   image = '/figures/codesign_pareto_study.png',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://andrlupi.github.io');
+const resolvedImage = new URL(getUrl(image), canonicalURL);
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://andrlupi
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={getUrl('/favicon.svg')} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -32,14 +34,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://andrlupi
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content="André Luiz Pianca" />
-    <meta name="keywords" content="André Luiz Pianca, Física, Engenharia Física, UNICAMP, Criogenia, Sirius, LNLS, CNPEM, Julia, Simulação Térmica, Newton-Raphson, Rosenbrock, Co-design" />
+    <meta name="keywords" content="André Luiz Pianca, Física, Engenharia Física, UNICAMP, Qualidade, Processos, Dispositivos Médicos, Criogenia, Sirius, LNLS, CNPEM, Julia, Simulação Térmica" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, canonicalURL)} />
+    <meta property="og:image" content={resolvedImage} />
     <meta property="og:site_name" content="André Luiz Pianca Portfolio" />
 
     <!-- Twitter -->
@@ -47,7 +49,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://andrlupi
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+    <meta property="twitter:image" content={resolvedImage} />
 
     <!-- Fontes Google e KaTeX CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

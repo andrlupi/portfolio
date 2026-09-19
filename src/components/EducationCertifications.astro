@@ -1,25 +1,25 @@
 ---
 const degrees = [
   {
-    title: "Graduação em Engenharia Física",
+    title: "Engenharia Física (Graduação)",
     institution: "Universidade Estadual de Campinas (UNICAMP)",
-    status: "Previsão: Dez 2028",
-    statusBadge: "Em Andamento",
-    details: "Formação multidisciplinar em instrumentação avançada, óptica, simulação multifísica, ciência dos materiais e projetos de engenharia de alta complexidade.",
+    status: "Previsão: Dez. 2028",
+    emphasis: "Ênfase em Produção Tecnológica",
+    details: "Formação multidisciplinar integrando instrumentação física, ciência e tecnologia dos materiais, processos industriais, metrologia e gestão de sistemas tecnológicos complexos.",
   },
   {
-    title: "Bacharelado em Física",
+    title: "Física (Bacharelado)",
     institution: "Universidade Estadual de Campinas (UNICAMP)",
-    status: "Previsão: Dez 2026",
-    statusBadge: "Em Conclusão",
-    details: "Ênfase em física experimental, mecânica quântica, termodinâmica e mecânica estatística, física do estado sólido e eletromagnetismo.",
+    status: "Previsão: Jul. 2027",
+    emphasis: null,
+    details: "Fundamentação teórica e experimental em mecânica quântica, termodinâmica, eletromagnetismo clássico, física do estado sólido e métodos computacionais.",
   },
   {
     title: "Ensino Médio e Técnico em Mecânica",
     institution: "Colégio Técnico de Limeira (COTIL - UNICAMP)",
-    status: "Concluído: 2015",
-    statusBadge: "Concluído",
-    details: "Base sólida em desenho técnico mecânico (CAD), usinagem, ensaios de materiais, elementos de máquinas e metrologia.",
+    status: "Concluído em 2015",
+    emphasis: null,
+    details: "Formação técnica em processos mecânicos, metrologia, ensaios de materiais, desenho técnico assistido por computador (CAD) e elementos de máquinas.",
   },
 ];
 
@@ -28,37 +28,36 @@ const certifications = [
     title: "Industrial Internet of Things (IIoT)",
     issuer: "University of Michigan",
     year: "2026",
-    icon: "iiot",
   },
   {
     title: "Digital Manufacturing & Design",
     issuer: "University at Buffalo",
     year: "2026",
-    icon: "mfg",
   },
   {
     title: "Advanced Manufacturing Process Analysis",
     issuer: "University at Buffalo",
     year: "2026",
-    icon: "analysis",
   },
   {
-    title: "Digital Thread: Implementation & Components",
+    title: "Digital Thread: Implementation",
     issuer: "University at Buffalo",
     year: "2026",
-    icon: "thread",
+  },
+  {
+    title: "Digital Thread: Components",
+    issuer: "University at Buffalo",
+    year: "2026",
   },
   {
     title: "Data-Driven Decision Making (DDDM)",
     issuer: "The State University of New York (SUNY)",
     year: "2025",
-    icon: "data",
   },
   {
     title: "Qiskit Global Summer School: The Path to Utility",
     issuer: "IBM Quantum",
     year: "2024",
-    icon: "quantum",
   },
 ];
 ---
@@ -76,13 +75,20 @@ const certifications = [
         degrees.map((deg) => (
           <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 hover:border-slate-700 transition-all">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h3 class="text-base font-bold text-white">{deg.title}</h3>
+              <div>
+                <h3 class="text-base font-bold text-white">{deg.title}</h3>
+                {deg.emphasis && (
+                  <span class="inline-block text-[11px] font-semibold text-cyan-400 mt-0.5">
+                    &bull; {deg.emphasis}
+                  </span>
+                )}
+              </div>
               <span class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 self-start sm:self-auto">
                 {deg.status}
               </span>
             </div>
-            <div class="text-xs font-semibold text-cyan-400/90 mb-2">{deg.institution}</div>
-            <p class="text-xs text-slate-300 leading-relaxed">{deg.details}</p>
+            <div class="text-xs font-semibold text-slate-300 mb-2">{deg.institution}</div>
+            <p class="text-xs text-slate-400 leading-relaxed">{deg.details}</p>
           </div>
         ))
       }

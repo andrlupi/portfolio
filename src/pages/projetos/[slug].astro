@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SimulatorWidget from '../../components/SimulatorWidget.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getUrl } from '../../utils/url';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -25,10 +26,10 @@ const { Content } = await project.render();
   image={project.data.coverImage}
 >
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
-    <!-- Navegação de Retorno -->
+    <!-- Navegação de Retorno com getUrl() -->
     <div>
       <a
-        href="/projetos"
+        href={getUrl('/projetos')}
         class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-cyan-300 transition-colors"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,7 +125,7 @@ const { Content } = await project.render();
     <!-- Footer do Post -->
     <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <a
-        href="/projetos"
+        href={getUrl('/projetos')}
         class="text-xs font-bold text-cyan-300 hover:text-cyan-200 flex items-center gap-2"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

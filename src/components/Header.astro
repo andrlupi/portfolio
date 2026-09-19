@@ -1,9 +1,11 @@
 ---
+import { getUrl } from '../utils/url';
+
 const navLinks = [
-  { name: 'Início', href: '/' },
-  { name: 'Sobre & CV', href: '/sobre' },
-  { name: 'Projetos', href: '/projetos' },
-  { name: 'EMA-C Sirius', href: '/projetos/ema-cryo', isHighlight: true },
+  { name: 'Início', href: getUrl('/') },
+  { name: 'Sobre & CV', href: getUrl('/sobre') },
+  { name: 'Projetos', href: getUrl('/projetos') },
+  { name: 'EMA-C Sirius', href: getUrl('/projetos/ema-cryo'), isHighlight: true },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -12,7 +14,7 @@ const currentPath = Astro.url.pathname;
 <header class="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#070a12]/85 backdrop-blur-lg">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <!-- Brand / Nome -->
-    <a href="/" class="flex items-center gap-2.5 group">
+    <a href={getUrl('/')} class="flex items-center gap-2.5 group">
       <div class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 group-hover:border-cyan-400/70 transition-colors">
         <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
         <span class="absolute w-4 h-4 rounded-full border border-cyan-400/40 animate-ping"></span>
@@ -22,7 +24,7 @@ const currentPath = Astro.url.pathname;
           ANDRÉ LUIZ PIANCA
         </div>
         <div class="text-[10px] font-medium tracking-wide text-slate-400">
-          UNICAMP &bull; Física & Engenharia Física
+          UNICAMP &bull; Física &amp; Engenharia Física
         </div>
       </div>
     </a>
@@ -31,7 +33,7 @@ const currentPath = Astro.url.pathname;
     <nav class="hidden md:flex items-center gap-1.5 text-xs font-semibold">
       {
         navLinks.map((link) => {
-          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+          const isActive = currentPath === link.href || (link.href !== getUrl('/') && currentPath.startsWith(link.href));
           return (
             <a
               href={link.href}
@@ -90,7 +92,7 @@ const currentPath = Astro.url.pathname;
     <!-- Mobile Menu Button -->
     <div class="flex md:hidden items-center gap-2">
       <a
-        href="/projetos/ema-cryo"
+        href={getUrl('/projetos/ema-cryo')}
         class="text-[11px] font-bold text-cyan-300 bg-cyan-500/10 px-2 py-1 rounded border border-cyan-500/30"
       >
         EMA-C

@@ -7,6 +7,7 @@ import ExperienceTimeline from '../components/ExperienceTimeline.astro';
 import EducationCertifications from '../components/EducationCertifications.astro';
 import SkillsStack from '../components/SkillsStack.astro';
 import { getCollection } from 'astro:content';
+import { getUrl } from '../utils/url';
 
 const projects = await getCollection('projects');
 const sortedProjects = projects.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
@@ -15,7 +16,7 @@ const featuredProject = sortedProjects[0];
 
 <Layout
   title="André Luiz Pianca | Físico & Engenheiro Físico (UNICAMP)"
-  description="Portfólio de André Luiz Pianca (UNICAMP) - Modelagem física não-linear, co-design termo-mecânico, sistemas criogênicos (Sirius/LNLS) e computação científica em Julia."
+  description="Física e Engenharia · Processos, Qualidade, Instrumentação, Modelagem e Simulação · UNICAMP"
 >
   <Hero />
 
@@ -34,7 +35,7 @@ const featuredProject = sortedProjects[0];
             </h2>
           </div>
           <a
-            href="/projetos/ema-cryo"
+            href={getUrl('/projetos/ema-cryo')}
             class="text-xs font-bold text-cyan-300 hover:text-cyan-200 flex items-center gap-1.5 transition-colors self-start sm:self-auto"
           >
             <span>Ver página dedicada do projeto</span>
@@ -83,7 +84,7 @@ const featuredProject = sortedProjects[0];
           Disponível para Pesquisa, P&amp;D e Projetos de Alta Complexidade
         </h2>
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          Seja para discutir desafios em criogenia, instrumentação científica, modelagem matemática em Julia ou desenvolvimento de engenharia física, estou à disposição para contato.
+          Seja para discutir desafios em criogenia, instrumentação científica, gestão de qualidade e processos ou modelagem computacional em Julia e Python, estou à disposição para contato.
         </p>
         <div class="pt-2 flex flex-wrap justify-center gap-3">
           <a

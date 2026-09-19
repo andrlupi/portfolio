@@ -1,59 +1,66 @@
 ---
 const skillGroups = [
   {
-    category: "Computação Científica & Programação",
+    category: "Programação & Computação Científica",
     icon: "code",
     skills: [
-      { name: "Julia 1.10+", level: "Avançado", desc: "Desenvolvimento de bibliotecas modulares, benchmarking e solvers numéricos" },
-      { name: "Python", level: "Avançado", desc: "NumPy, SciPy, processamento de dados e scripts de instrumentação" },
-      { name: "C", level: "Intermediário", desc: "Estruturas de dados e programação de baixo nível" },
+      { name: "Python", level: "Avançado", desc: "Modelagem numérica, automação e análise de dados" },
+      { name: "Julia", level: "Avançado", desc: "Bibliotecas científicas modulares, solvers não-lineares e simulação térmica" },
+      { name: "C", level: "Intermediário", desc: "Estruturas de dados e conceitos de baixo nível" },
       { name: "MATLAB", level: "Intermediário", desc: "Cálculo vetorial e simulações analíticas" },
     ],
   },
   {
-    category: "Métodos Numéricos & Físicos",
-    icon: "math",
-    skills: [
-      { name: "Transformada de Kirchhoff", level: "Especialista", desc: "Condução térmica criogênica não-linear exata" },
-      { name: "Quadratura de Gauss-Legendre", level: "Especialista", desc: "Integração numérica exata de polinômios de grau elevado" },
-      { name: "Newton-Raphson Amortecido", level: "Especialista", desc: "Jacobiano analítico e busca linear retrógrada (backtracking)" },
-      { name: "Integradores Rosenbrock L-Estáveis", level: "Especialista", desc: "Equações diferenciais rígidas com variação de cp > 3500×" },
-    ],
-  },
-  {
-    category: "CAD & Engenharia Mecânica",
+    category: "CAD, Simulação & Engenharia",
     icon: "cad",
     skills: [
-      { name: "Autodesk Fusion 360 & Inventor", level: "Avançado", desc: "Modelagem paramétrica 3D, montagens e simulação estática" },
-      { name: "Simulink & Simscape", level: "Avançado", desc: "Modelagem multifísica e diagramas de blocos" },
-      { name: "AutoCAD & Desenho Técnico", level: "Avançado", desc: "Dimensionamento e tolerâncias geométricas (COTIL Mecânica)" },
-      { name: "Ansys (FEA Básico)", level: "Intermediário", desc: "Análise estrutural e térmica por elementos finitos" },
+      { name: "Autodesk Fusion 360 & Inventor", level: "Avançado", desc: "Modelagem paramétrica 3D e projetos de máquinas" },
+      { name: "AutoCAD & Desenho Técnico", level: "Avançado", desc: "Formação técnica COTIL-UNICAMP, toleranciamento e desenho industrial" },
+      { name: "Simulink & Simscape", level: "Avançado", desc: "Modelagem física multidisciplinar e simulação dinâmica" },
+      { name: "Ansys", level: "Intermediário", desc: "Análise por elementos finitos (FEA)" },
     ],
   },
   {
-    category: "Instrumentação & Infraestrutura Científica",
+    category: "Instrumentação & Física Aplicada",
     icon: "lab",
     skills: [
-      { name: "Sistemas Criogênicos (< 10 K)", level: "Avançado", desc: "Criocoolers de ciclo fechado, escudos térmicos e cordoalhas" },
-      { name: "Tecnologia de Alto Vácuo", level: "Avançado", desc: "Câmaras de ensaio, bombas turbomoleculares e detecção de fugas" },
-      { name: "Termometria de Baixa Temperatura", level: "Avançado", desc: "Sensores Cernox, diodos de silício e pontes de resistência" },
-      { name: "Co-Design Termo-Mecânico (MBSE)", level: "Avançado", desc: "Compromisso entre rigidez dinâmica e isolamento térmico" },
+      { name: "Criogenia (< 10 K)", level: "Avançado", desc: "Sistemas de dedo frio, criorefrigeradores e interfaces térmicas" },
+      { name: "Tecnologia de Vácuo", level: "Avançado", desc: "Alto vácuo em câmaras de teste e instrumentação científica" },
+      { name: "Modelagem Térmica", level: "Avançado", desc: "Parâmetros concentrados (lumped-mass) e transformada de Kirchhoff" },
+      { name: "Instrumentação Geral", level: "Avançado", desc: "Sensores, termometria de precisão e aquisição de dados" },
+    ],
+  },
+  {
+    category: "Processos, Qualidade & Regulação",
+    icon: "quality",
+    skills: [
+      { name: "Gestão da Qualidade (SGQ)", level: "Prática Ativa", desc: "Estruturação de documentação técnica, procedimentos e registros" },
+      { name: "Dispositivos Médicos & Regulação", level: "Prática Ativa", desc: "Conformidade normativa e apoio a assuntos regulatórios" },
+      { name: "Padronização de Processos", level: "Prática Ativa", desc: "Mapeamento de fluxos, ferramentas da qualidade e indicadores" },
+      { name: "Governança & Decisão", level: "Prática Ativa", desc: "Apoio a fluxos decisórios institucionais" },
     ],
   },
 ];
 
+const softSkills = [
+  "Divulgação Científica & Mediação",
+  "Trabalho em Equipe & Liderança",
+  "Planejamento e Gestão de Projetos",
+  "Didática Experimental",
+];
+
 const languages = [
   { name: "Português", level: "Nativo", badge: "Língua Materna", pct: 100 },
-  { name: "Inglês", level: "Avançado", badge: "Fluência Técnica & Científica", pct: 90 },
+  { name: "Inglês", level: "Avançado", badge: "Comunicação Técnica & Acadêmica", pct: 85 },
   { name: "Espanhol", level: "Básico", badge: "Comunicação Essencial", pct: 40 },
-  { name: "Chinês (Mandarim)", level: "Básico", badge: "Comunicação Introdutória", pct: 30 },
+  { name: "Chinês", level: "Básico", badge: "Comunicação Introdutória", pct: 30 },
 ];
 ---
 
 <section id="skills" class="space-y-8 pt-4">
   <div class="border-b border-slate-800/80 pb-3">
-    <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Competências &amp; Ferramentas</span>
-    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Stack Técnico &amp; Métodos</h2>
+    <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Competências &amp; Stack</span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Competências Técnicas</h2>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -85,13 +92,29 @@ const languages = [
     }
   </div>
 
+  <!-- Soft Skills e Ensino -->
+  <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800">
+    <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono mb-3">
+      Soft Skills &amp; Ensino
+    </h3>
+    <div class="flex flex-wrap gap-2">
+      {
+        softSkills.map((item) => (
+          <span class="text-xs font-medium bg-slate-900 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-800">
+            &bull; {item}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
   <!-- Idiomas -->
   <div class="glass-panel p-6 bg-[#0c1322]/80 border-slate-800">
     <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono mb-4 flex items-center gap-2">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
       </svg>
-      Proficiência em Idiomas
+      Idiomas
     </h3>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

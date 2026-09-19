@@ -85,7 +85,7 @@ garante estabilidade numérica incondicional durante todo o resfriamento de $300
 
 ### 1. Interface Térmica: Junta com Folha de Índio vs Gás de Troca de Hélio
 
-![Estudo de Interfaces Criogênicas](/figures/cold_interfaces_study.png)
+![Estudo de Interfaces Criogênicas](../../assets/figures/cold_interfaces_study.png)
 
 - **Folha de Índio (Cordoalha Mecânica):** Sob pré-carga mecânica de parafusos ($P \ge 2.5\text{ MPa}$), a folha de índio atinge deformação plástica, preenchendo as rugosidades microscópicas das superfícies metálicas. Isso eleva a condutância de contato em **$21\times$** em comparação a contatos secos, assegurando a estabilização da Mini-DAC em **$4.93\text{ K}$** sob incidência do feixe.
 - **Gás de Troca ($^4\text{He}$ estático):** Embora desacople completamente as vibrações mecânicas da cabeça fria, a resistência condutiva da camada gasosa (mesmo com folga de apenas $2\text{ mm}$) limita a temperatura de equilíbrio a aproximadamente **$11.6\text{ K}$**. Concluiu-se que o uso da cordoalha com índio é estritamente mandatório para pesquisas na faixa sub-5 K.
@@ -94,7 +94,7 @@ garante estabilidade numérica incondicional durante todo o resfriamento de $300
 
 ### 2. Co-Design Termo-Mecânico e Fronteira de Pareto
 
-![Estudo da Fronteira de Pareto Termo-Mecânica](/figures/codesign_pareto_study.png)
+![Estudo da Fronteira de Pareto Termo-Mecânica](../../assets/figures/codesign_pareto_study.png)
 
 - **Figura de Mérito Material (FOM):** Definida como a razão entre módulo de elasticidade e integral térmica, $\text{FOM} = \frac{E}{\int_{4}^{300} k(T) \, dT}$.
 - **Titânio Ti-6Al-4V vs Inox 304:** A liga de Titânio Ti-6Al-4V demonstrou uma performance **$52\%$ superior** em relação ao Aço Inoxidável 304, viabilizando frequências naturais de até $400\text{ Hz}$ com temperaturas de apenas $4.42\text{ K}$.
@@ -104,7 +104,7 @@ garante estabilidade numérica incondicional durante todo o resfriamento de $300
 
 ### 3. Dinâmica Temporal de Resfriamento
 
-![Dinâmica Transiente de Resfriamento](/figures/transient_cooldown_study.png)
+![Dinâmica Transiente de Resfriamento](../../assets/figures/transient_cooldown_study.png)
 
 A integração temporal revelou que a constante de tempo do sistema é governada inicialmente pela capacidade de extração de calor do criorefrigerador de ciclo fechado, atingindo o regime criogênico em aproximadamente 35 minutos de bombeamento contínuo.
 

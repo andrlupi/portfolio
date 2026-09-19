@@ -1,56 +1,51 @@
 ---
 const experiences = [
   {
-    role: "Estagiário de P&D em Sistemas Criogênicos",
-    company: "CNPEM - Centro Nacional de Pesquisa em Energia e Materiais",
-    period: "Abr. 2023 - Dez. 2023",
+    role: "Bolsista – Qualidade e Processos",
+    company: "Instituto Hardware BR",
+    period: "jul. 2026 – presente",
     location: "Campinas, SP",
-    highlight: "Sirius / Linha EMA",
+    highlight: "Dispositivos Médicos & Gestão",
+    isCurrent: true,
     description: [
-      "Desenvolvimento e validação de modelo térmico lumped-mass para o sistema criogênico da nanoestação da linha EMA (Sirius), modelando a dinâmica de resfriamento e temperatura de operação.",
-      "Definição estratégica de resistências térmicas de contato e condução como constraints de co-design de engenharia, antecipando limitações termo-mecânicas da câmara de amostra.",
-      "Apresentação dos resultados em formato flash talk durante o V Congresso de Estudantes do CNPEM.",
+      "Apoio à governança institucional e organização de estruturas e fluxos de decisão.",
+      "Suporte à estruturação do sistema de gestão da qualidade (documentação, procedimentos e registros).",
+      "Contribuição em assuntos regulatórios na área de dispositivos médicos (documentação técnica e conformidade normativa).",
+      "Padronização de processos e ferramentas de qualidade.",
+      "Acompanhamento de indicadores e apoio administrativo à área.",
     ],
-    tags: ["Julia", "Lumped-Mass", "Criogenia (< 10 K)", "Sirius / LNLS", "MBSE"],
+    tags: ["Gestão da Qualidade", "Dispositivos Médicos", "Assuntos Regulatórios", "Padronização de Processos"],
     color: "cyan",
   },
   {
-    role: "Estagiário em Mediação Científica",
-    company: "Museu Exploratório de Ciências da UNICAMP",
-    period: "Mai. 2025 - Presente",
+    role: "Estagiário – Mediação Científica",
+    company: "Museu Exploratório de Ciências, UNICAMP",
+    period: "mai. 2025 – jul. 2026",
     location: "Campinas, SP",
     highlight: "Divulgação Científica",
+    isCurrent: false,
     description: [
-      "Condução de demonstrações experimentais de física e ciências para turmas de ensino fundamental, médio e público em geral.",
-      "Transposição didática de fenômenos físicos complexos em linguagem acessível e instigante.",
-      "Suporte no planejamento operacional e desenvolvimento de novas oficinas educativas do museu.",
+      "Condução de demonstrações experimentais de ciências para públicos de diferentes níveis de escolaridade.",
+      "Adaptação de conceitos físicos complexos para linguagem acessível ao público geral.",
+      "Suporte à logística operacional e atividades educativas do museu.",
     ],
-    tags: ["Didática Experimental", "Mediação Científica", "Comunicação Técnica"],
+    tags: ["Demonstrações Experimentais", "Didática & Ensino", "Mediação Científica"],
     color: "emerald",
   },
   {
-    role: "Monitor Acadêmico de Graduação (F 259)",
-    company: "Instituto de Física Gleb Wataghin (IFGW) - UNICAMP",
-    period: "2025",
+    role: "Estagiário – P&D em Sistemas Criogênicos",
+    company: "CNPEM – Centro Nacional de Pesquisa em Energia e Materiais",
+    period: "abr. 2023 – dez. 2023",
     location: "Campinas, SP",
-    highlight: "Física Experimental II",
+    highlight: "Sirius / Linha EMA-nano",
+    isCurrent: false,
     description: [
-      "Orientação de grupos de graduação em práticas laboratoriais analíticas, propagação de incertezas e redação de relatórios científicos rigorosos.",
+      "Desenvolvimento e validação de modelo térmico lumped-mass para o sistema criogênico da linha EMA-nano, garantindo a previsibilidade de temperatura de operação e tempo de resfriamento do ambiente de experimentos.",
+      "Definição estratégica de parâmetros de resistência térmica como constraints de engenharia, antecipando e mitigando restrições de desempenho durante a fase de projeto do sistema.",
+      "Divulgação dos resultados obtidos por meio de flash talk durante o V Congresso de Estudantes do CNPEM.",
     ],
-    tags: ["Física Experimental", "Tratamento de Dados", "Incertezas"],
+    tags: ["Julia", "Modelagem Térmica", "Lumped-Mass", "Criogenia (< 10 K)", "Sirius / LNLS"],
     color: "blue",
-  },
-  {
-    role: "Monitor Acadêmico de Graduação (F 489)",
-    company: "Instituto de Física Gleb Wataghin (IFGW) - UNICAMP",
-    period: "2024",
-    location: "Campinas, SP",
-    highlight: "Estrutura da Matéria II",
-    description: [
-      "Suporte conceitual em mecânica quântica, equação de Schrödinger, átomos multieletrônicos, espectroscopia molecular e física do estado sólido.",
-    ],
-    tags: ["Física Quântica", "Estado Sólido", "Ensino Superior"],
-    color: "purple",
   },
 ];
 ---
@@ -59,10 +54,10 @@ const experiences = [
   <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-800/80 pb-4">
     <div>
       <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Trajetória Profissional</span>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Experiência em Engenharia &amp; Pesquisa</h2>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Experiência Profissional</h2>
     </div>
     <p class="text-xs text-slate-400 max-w-md">
-      Histórico focado em engenharia física de ponta, infraestrutura de feixes síncrotron e formação acadêmica sólida.
+      Atuação em governança da qualidade, dispositivos médicos, infraestrutura criogênica de feixes síncrotron e divulgação científica.
     </p>
   </div>
 
@@ -72,8 +67,13 @@ const experiences = [
         <div class="glass-panel p-5 sm:p-6 bg-[#0c1322]/80 border-slate-800/80 hover:border-slate-700 transition-all">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
             <div>
-              <div class="flex items-center gap-2">
+              <div class="flex flex-wrap items-center gap-2">
                 <span class="text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono">{exp.role}</span>
+                {exp.isCurrent && (
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold uppercase tracking-wide animate-pulse">
+                    Atual
+                  </span>
+                )}
                 <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-semibold">
                   {exp.highlight}
                 </span>

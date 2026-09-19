@@ -1,4 +1,5 @@
 ---
+import { getUrl } from '../utils/url';
 ---
 
 <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-800/80">
@@ -13,15 +14,15 @@
           <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          Físico &amp; Engenheiro Físico &bull; UNICAMP
+          Física &amp; Engenharia &bull; UNICAMP
         </span>
         <span class="badge-dark">
           <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-          Sistemas Criogênicos Sirius (LNLS/CNPEM)
+          Processos &bull; Qualidade &bull; Dispositivos Médicos
         </span>
         <span class="badge-dark">
           <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-          Computação Científica em Julia 1.10+
+          Instrumentação, Modelagem e Simulação
         </span>
       </div>
 
@@ -30,15 +31,15 @@
         Transformando <span class="gradient-text-cryo">física complexa</span> em inovação e <span class="gradient-text-blue">engenharia de ponta</span>.
       </h1>
 
-      <!-- Resumo Executivo -->
+      <!-- Resumo Profissional Fiel ao Currículo -->
       <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
-        Físico e Engenheiro Físico em formação pela <strong class="text-white">UNICAMP</strong>, com foco em modelagem física por parâmetros concentrados, co-design termo-mecânico para instrumentação científica de feixe síncrotron, sistemas criogênicos (<span class="text-cyan-300 font-mono text-sm">&lt; 5 K</span>) e integradores numéricos não-lineares.
+        Físico e Engenheiro Físico em formação pela <strong class="text-white">UNICAMP</strong>, com sólida base em modelagem física, simulações computacionais e instrumentação científica. Com histórico no desenvolvimento de sistemas criogênicos, gestão de processos e conformidade regulatória, aplico curiosidade técnica e visão analítica para impulsionar projetos de P&amp;D que agreguem valor estratégico.
       </p>
 
-      <!-- Botões de Ação -->
+      <!-- Botões de Ação com getUrl() -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
         <a
-          href="/projetos/ema-cryo"
+          href={getUrl('/projetos/ema-cryo')}
           class="px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 flex items-center gap-2 group"
         >
           <span>Estudo de Caso: EMA-C Sirius</span>
@@ -48,7 +49,7 @@
         </a>
 
         <a
-          href="/sobre"
+          href={getUrl('/sobre')}
           class="px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 transition-all flex items-center gap-2"
         >
           <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,30 +71,30 @@
         </a>
       </div>
 
-      <!-- Barra de Métricas Chave de Engenharia -->
+      <!-- Barra de Métricas Chave de Engenharia & Formação -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
         <div class="glass-card-interactive p-3.5 border-l-2 border-l-cyan-400">
-          <div class="text-xl sm:text-2xl font-black text-cyan-300 font-mono">44 / 44</div>
-          <div class="text-[11px] font-bold text-slate-200 mt-0.5">Testes Unitários</div>
-          <div class="text-[10px] text-slate-400">Validação física em Julia</div>
+          <div class="text-xl sm:text-2xl font-black text-cyan-300 font-mono">Hardware BR</div>
+          <div class="text-[11px] font-bold text-slate-200 mt-0.5">Qualidade &amp; Processos</div>
+          <div class="text-[10px] text-slate-400">Dispositivos médicos &bull; Ativo</div>
         </div>
 
         <div class="glass-card-interactive p-3.5 border-l-2 border-l-blue-500">
-          <div class="text-xl sm:text-2xl font-black text-blue-400 font-mono">&lt; 10⁻¹⁰ W</div>
-          <div class="text-[11px] font-bold text-slate-200 mt-0.5">Resíduo Newton-Raphson</div>
-          <div class="text-[10px] text-slate-400">Convergência do balanço térmico</div>
+          <div class="text-xl sm:text-2xl font-black text-blue-400 font-mono">Sirius (LNLS)</div>
+          <div class="text-[11px] font-bold text-slate-200 mt-0.5">P&amp;D em Criogenia</div>
+          <div class="text-[10px] text-slate-400">Linha EMA-nano &bull; CNPEM</div>
         </div>
 
         <div class="glass-card-interactive p-3.5 border-l-2 border-l-emerald-400">
           <div class="text-xl sm:text-2xl font-black text-emerald-400 font-mono">21×</div>
-          <div class="text-[11px] font-bold text-slate-200 mt-0.5">Condutância Junta Índio</div>
-          <div class="text-[10px] text-slate-400">Sob torque P &ge; 2.5 MPa</div>
+          <div class="text-[11px] font-bold text-slate-200 mt-0.5">Condutância da Junta</div>
+          <div class="text-[10px] text-slate-400">Folha de Índio sob P &ge; 2.5 MPa</div>
         </div>
 
         <div class="glass-card-interactive p-3.5 border-l-2 border-l-purple-400">
           <div class="text-xl sm:text-2xl font-black text-purple-400 font-mono">UNICAMP</div>
-          <div class="text-[11px] font-bold text-slate-200 mt-0.5">Eng. Física &amp; Física</div>
-          <div class="text-[10px] text-slate-400">Previsão: Dez 2026 / 2028</div>
+          <div class="text-[11px] font-bold text-slate-200 mt-0.5">Física &bull; Eng. Física</div>
+          <div class="text-[10px] text-slate-400">Previsão: Jul 2027 / Dez 2028</div>
         </div>
       </div>
     </div>
