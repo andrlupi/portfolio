@@ -1,0 +1,114 @@
+---
+const skillGroups = [
+  {
+    category: "Computação Científica & Programação",
+    icon: "code",
+    skills: [
+      { name: "Julia 1.10+", level: "Avançado", desc: "Desenvolvimento de bibliotecas modulares, benchmarking e solvers numéricos" },
+      { name: "Python", level: "Avançado", desc: "NumPy, SciPy, processamento de dados e scripts de instrumentação" },
+      { name: "C", level: "Intermediário", desc: "Estruturas de dados e programação de baixo nível" },
+      { name: "MATLAB", level: "Intermediário", desc: "Cálculo vetorial e simulações analíticas" },
+    ],
+  },
+  {
+    category: "Métodos Numéricos & Físicos",
+    icon: "math",
+    skills: [
+      { name: "Transformada de Kirchhoff", level: "Especialista", desc: "Condução térmica criogênica não-linear exata" },
+      { name: "Quadratura de Gauss-Legendre", level: "Especialista", desc: "Integração numérica exata de polinômios de grau elevado" },
+      { name: "Newton-Raphson Amortecido", level: "Especialista", desc: "Jacobiano analítico e busca linear retrógrada (backtracking)" },
+      { name: "Integradores Rosenbrock L-Estáveis", level: "Especialista", desc: "Equações diferenciais rígidas com variação de cp > 3500×" },
+    ],
+  },
+  {
+    category: "CAD & Engenharia Mecânica",
+    icon: "cad",
+    skills: [
+      { name: "Autodesk Fusion 360 & Inventor", level: "Avançado", desc: "Modelagem paramétrica 3D, montagens e simulação estática" },
+      { name: "Simulink & Simscape", level: "Avançado", desc: "Modelagem multifísica e diagramas de blocos" },
+      { name: "AutoCAD & Desenho Técnico", level: "Avançado", desc: "Dimensionamento e tolerâncias geométricas (COTIL Mecânica)" },
+      { name: "Ansys (FEA Básico)", level: "Intermediário", desc: "Análise estrutural e térmica por elementos finitos" },
+    ],
+  },
+  {
+    category: "Instrumentação & Infraestrutura Científica",
+    icon: "lab",
+    skills: [
+      { name: "Sistemas Criogênicos (< 10 K)", level: "Avançado", desc: "Criocoolers de ciclo fechado, escudos térmicos e cordoalhas" },
+      { name: "Tecnologia de Alto Vácuo", level: "Avançado", desc: "Câmaras de ensaio, bombas turbomoleculares e detecção de fugas" },
+      { name: "Termometria de Baixa Temperatura", level: "Avançado", desc: "Sensores Cernox, diodos de silício e pontes de resistência" },
+      { name: "Co-Design Termo-Mecânico (MBSE)", level: "Avançado", desc: "Compromisso entre rigidez dinâmica e isolamento térmico" },
+    ],
+  },
+];
+
+const languages = [
+  { name: "Português", level: "Nativo", badge: "Língua Materna", pct: 100 },
+  { name: "Inglês", level: "Avançado", badge: "Fluência Técnica & Científica", pct: 90 },
+  { name: "Espanhol", level: "Básico", badge: "Comunicação Essencial", pct: 40 },
+  { name: "Chinês (Mandarim)", level: "Básico", badge: "Comunicação Introdutória", pct: 30 },
+];
+---
+
+<section id="skills" class="space-y-8 pt-4">
+  <div class="border-b border-slate-800/80 pb-3">
+    <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Competências &amp; Ferramentas</span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Stack Técnico &amp; Métodos</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    {
+      skillGroups.map((group) => (
+        <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-extrabold text-white tracking-wide uppercase flex items-center gap-2 mb-4 pb-2 border-b border-slate-800/60">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              {group.category}
+            </h3>
+
+            <div class="space-y-3">
+              {group.skills.map((skill) => (
+                <div class="p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/60">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-xs font-bold text-slate-100">{skill.name}</span>
+                    <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                      {skill.level}
+                    </span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-normal">{skill.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Idiomas -->
+  <div class="glass-panel p-6 bg-[#0c1322]/80 border-slate-800">
+    <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono mb-4 flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+      </svg>
+      Proficiência em Idiomas
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {
+        languages.map((lang) => (
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-bold text-white">{lang.name}</span>
+              <span class="text-[11px] font-mono text-cyan-300 font-semibold">{lang.level}</span>
+            </div>
+            <div class="text-[10px] text-slate-400 mb-2">{lang.badge}</div>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+              <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-1.5 rounded-full" style={`width: ${lang.pct}%`}></div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,119 @@
+---
+const degrees = [
+  {
+    title: "Graduação em Engenharia Física",
+    institution: "Universidade Estadual de Campinas (UNICAMP)",
+    status: "Previsão: Dez 2028",
+    statusBadge: "Em Andamento",
+    details: "Formação multidisciplinar em instrumentação avançada, óptica, simulação multifísica, ciência dos materiais e projetos de engenharia de alta complexidade.",
+  },
+  {
+    title: "Bacharelado em Física",
+    institution: "Universidade Estadual de Campinas (UNICAMP)",
+    status: "Previsão: Dez 2026",
+    statusBadge: "Em Conclusão",
+    details: "Ênfase em física experimental, mecânica quântica, termodinâmica e mecânica estatística, física do estado sólido e eletromagnetismo.",
+  },
+  {
+    title: "Ensino Médio e Técnico em Mecânica",
+    institution: "Colégio Técnico de Limeira (COTIL - UNICAMP)",
+    status: "Concluído: 2015",
+    statusBadge: "Concluído",
+    details: "Base sólida em desenho técnico mecânico (CAD), usinagem, ensaios de materiais, elementos de máquinas e metrologia.",
+  },
+];
+
+const certifications = [
+  {
+    title: "Industrial Internet of Things (IIoT)",
+    issuer: "University of Michigan",
+    year: "2026",
+    icon: "iiot",
+  },
+  {
+    title: "Digital Manufacturing & Design",
+    issuer: "University at Buffalo",
+    year: "2026",
+    icon: "mfg",
+  },
+  {
+    title: "Advanced Manufacturing Process Analysis",
+    issuer: "University at Buffalo",
+    year: "2026",
+    icon: "analysis",
+  },
+  {
+    title: "Digital Thread: Implementation & Components",
+    issuer: "University at Buffalo",
+    year: "2026",
+    icon: "thread",
+  },
+  {
+    title: "Data-Driven Decision Making (DDDM)",
+    issuer: "The State University of New York (SUNY)",
+    year: "2025",
+    icon: "data",
+  },
+  {
+    title: "Qiskit Global Summer School: The Path to Utility",
+    issuer: "IBM Quantum",
+    year: "2024",
+    icon: "quantum",
+  },
+];
+---
+
+<section id="formacao" class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
+  <!-- Formação Acadêmica -->
+  <div class="lg:col-span-7 space-y-6">
+    <div class="border-b border-slate-800/80 pb-3">
+      <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Ensino Superior &amp; Técnico</span>
+      <h2 class="text-2xl font-extrabold text-white mt-1">Formação Acadêmica</h2>
+    </div>
+
+    <div class="space-y-3">
+      {
+        degrees.map((deg) => (
+          <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 hover:border-slate-700 transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+              <h3 class="text-base font-bold text-white">{deg.title}</h3>
+              <span class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 self-start sm:self-auto">
+                {deg.status}
+              </span>
+            </div>
+            <div class="text-xs font-semibold text-cyan-400/90 mb-2">{deg.institution}</div>
+            <p class="text-xs text-slate-300 leading-relaxed">{deg.details}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Certificações -->
+  <div class="lg:col-span-5 space-y-6">
+    <div class="border-b border-slate-800/80 pb-3">
+      <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Especializações &amp; Cursos</span>
+      <h2 class="text-2xl font-extrabold text-white mt-1">Certificações</h2>
+    </div>
+
+    <div class="glass-panel p-4 bg-[#0c1322]/80 border-slate-800 space-y-3 max-h-[460px] overflow-y-auto">
+      {
+        certifications.map((cert) => (
+          <div class="p-3 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-slate-700 transition-all flex items-start gap-3">
+            <div class="mt-0.5 p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-100 leading-snug">{cert.title}</h4>
+              <p class="text-[11px] text-slate-400 mt-0.5">
+                {cert.issuer} &bull; <span class="font-mono text-cyan-400">{cert.year}</span>
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

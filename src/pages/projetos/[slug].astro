@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SimulatorWidget from '../../components/SimulatorWidget.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Layout
+  title={`${project.data.title} | André Luiz Pianca`}
+  description={project.data.description}
+  image={project.data.coverImage}
+>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+    <!-- Navegação de Retorno -->
+    <div>
+      <a
+        href="/projetos"
+        class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-cyan-300 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Voltar para Todos os Projetos</span>
+      </a>
+    </div>
+
+    <!-- Cabeçalho do Estudo de Caso -->
+    <header class="space-y-4 border-b border-slate-800 pb-8">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono bg-cyan-500/10 px-2.5 py-0.5 rounded border border-cyan-500/30">
+          {project.data.category}
+        </span>
+        {project.data.featured && (
+          <span class="text-[11px] font-bold text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
+            &starf; Destaque Principal
+          </span>
+        )}
+        <span class="text-xs font-mono text-slate-500">
+          {project.data.publishDate}
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+        {project.data.title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-cyan-300 font-medium leading-relaxed">
+        {project.data.tagline}
+      </p>
+
+      <!-- Ações: Repositório e Documento Técnico -->
+      <div class="flex flex-wrap gap-3 pt-2">
+        {project.data.repoUrl && (
+          <a
+            href={project.data.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 transition-all flex items-center gap-2 shadow-sm"
+          >
+            <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+            <span>Ver Repositório no GitHub</span>
+          </a>
+        )}
+
+        {project.data.docUrl && (
+          <a
+            href={project.data.docUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2.5 rounded-xl text-xs font-bold text-cyan-300 bg-cyan-950/60 hover:bg-cyan-900/60 border border-cyan-500/40 transition-all flex items-center gap-2 shadow-sm"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span>Relatório Técnico de Engenharia</span>
+          </a>
+        )}
+      </div>
+
+      <!-- Grid de Métricas Principais -->
+      {project.data.metrics && project.data.metrics.length > 0 && (
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 pt-4">
+          {project.data.metrics.map((metric) => (
+            <div class="glass-card-interactive p-3 border-slate-800">
+              <div class="text-base sm:text-lg font-black text-cyan-300 font-mono">{metric.value}</div>
+              <div class="text-[11px] font-bold text-slate-200 mt-0.5">{metric.label}</div>
+              {metric.detail && (
+                <div class="text-[9px] text-slate-400 mt-1 leading-tight">{metric.detail}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Simulador Interativo Embarcado (Se for o EMA) -->
+    {project.slug === 'ema-cryo' && (
+      <div class="space-y-3">
+        <SimulatorWidget title="Simulação Interativa de Interfaces (EMA-nano)" showDetailsLink={false} />
+      </div>
+    )}
+
+    <!-- Corpo do Artigo / Estudo Técnico em Markdown -->
+    <article class="prose prose-invert max-w-none prose-cyan prose-headings:font-black prose-headings:tracking-tight prose-h2:text-2xl prose-h2:border-b prose-h2:border-slate-800/80 prose-h2:pb-2 prose-h3:text-xl prose-p:text-slate-300 prose-p:leading-relaxed prose-li:text-slate-300 prose-code:text-cyan-300 prose-code:font-mono prose-pre:border prose-pre:border-slate-800 prose-pre:bg-[#070b16] prose-img:rounded-xl prose-img:border prose-img:border-slate-800">
+      <Content />
+    </article>
+
+    <!-- Footer do Post -->
+    <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a
+        href="/projetos"
+        class="text-xs font-bold text-cyan-300 hover:text-cyan-200 flex items-center gap-2"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Voltar ao Portfólio de Projetos</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="https://github.com/andrlupi/EMA-C_LM-Cryo-Modelling"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-semibold text-slate-400 hover:text-white"
+        >
+          Código no GitHub &rarr;
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

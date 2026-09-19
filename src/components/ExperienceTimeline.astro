@@ -1,0 +1,109 @@
+---
+const experiences = [
+  {
+    role: "Estagiário de P&D em Sistemas Criogênicos",
+    company: "CNPEM - Centro Nacional de Pesquisa em Energia e Materiais",
+    period: "Abr. 2023 - Dez. 2023",
+    location: "Campinas, SP",
+    highlight: "Sirius / Linha EMA",
+    description: [
+      "Desenvolvimento e validação de modelo térmico lumped-mass para o sistema criogênico da nanoestação da linha EMA (Sirius), modelando a dinâmica de resfriamento e temperatura de operação.",
+      "Definição estratégica de resistências térmicas de contato e condução como constraints de co-design de engenharia, antecipando limitações termo-mecânicas da câmara de amostra.",
+      "Apresentação dos resultados em formato flash talk durante o V Congresso de Estudantes do CNPEM.",
+    ],
+    tags: ["Julia", "Lumped-Mass", "Criogenia (< 10 K)", "Sirius / LNLS", "MBSE"],
+    color: "cyan",
+  },
+  {
+    role: "Estagiário em Mediação Científica",
+    company: "Museu Exploratório de Ciências da UNICAMP",
+    period: "Mai. 2025 - Presente",
+    location: "Campinas, SP",
+    highlight: "Divulgação Científica",
+    description: [
+      "Condução de demonstrações experimentais de física e ciências para turmas de ensino fundamental, médio e público em geral.",
+      "Transposição didática de fenômenos físicos complexos em linguagem acessível e instigante.",
+      "Suporte no planejamento operacional e desenvolvimento de novas oficinas educativas do museu.",
+    ],
+    tags: ["Didática Experimental", "Mediação Científica", "Comunicação Técnica"],
+    color: "emerald",
+  },
+  {
+    role: "Monitor Acadêmico de Graduação (F 259)",
+    company: "Instituto de Física Gleb Wataghin (IFGW) - UNICAMP",
+    period: "2025",
+    location: "Campinas, SP",
+    highlight: "Física Experimental II",
+    description: [
+      "Orientação de grupos de graduação em práticas laboratoriais analíticas, propagação de incertezas e redação de relatórios científicos rigorosos.",
+    ],
+    tags: ["Física Experimental", "Tratamento de Dados", "Incertezas"],
+    color: "blue",
+  },
+  {
+    role: "Monitor Acadêmico de Graduação (F 489)",
+    company: "Instituto de Física Gleb Wataghin (IFGW) - UNICAMP",
+    period: "2024",
+    location: "Campinas, SP",
+    highlight: "Estrutura da Matéria II",
+    description: [
+      "Suporte conceitual em mecânica quântica, equação de Schrödinger, átomos multieletrônicos, espectroscopia molecular e física do estado sólido.",
+    ],
+    tags: ["Física Quântica", "Estado Sólido", "Ensino Superior"],
+    color: "purple",
+  },
+];
+---
+
+<section id="experiencia" class="space-y-6">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-800/80 pb-4">
+    <div>
+      <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Trajetória Profissional</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Experiência em Engenharia &amp; Pesquisa</h2>
+    </div>
+    <p class="text-xs text-slate-400 max-w-md">
+      Histórico focado em engenharia física de ponta, infraestrutura de feixes síncrotron e formação acadêmica sólida.
+    </p>
+  </div>
+
+  <div class="space-y-4 pt-2">
+    {
+      experiences.map((exp) => (
+        <div class="glass-panel p-5 sm:p-6 bg-[#0c1322]/80 border-slate-800/80 hover:border-slate-700 transition-all">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono">{exp.role}</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-semibold">
+                  {exp.highlight}
+                </span>
+              </div>
+              <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5">{exp.company}</h3>
+            </div>
+            <div class="text-xs text-slate-400 font-medium sm:text-right">
+              <div>{exp.period}</div>
+              <div class="text-[11px] text-slate-500">{exp.location}</div>
+            </div>
+          </div>
+
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mb-4">
+            {exp.description.map((bullet) => (
+              <li class="flex items-start gap-2">
+                <span class="text-cyan-400 mt-1">&bull;</span>
+                <span class="leading-relaxed">{bullet}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800/60">
+            {exp.tags.map((tag) => (
+              <span class="text-[11px] font-medium bg-slate-900/90 text-slate-300 px-2.5 py-0.5 rounded-md border border-slate-800">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

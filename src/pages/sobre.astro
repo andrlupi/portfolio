@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import EducationCertifications from '../components/EducationCertifications.astro';
+import SkillsStack from '../components/SkillsStack.astro';
+---
+
+<Layout
+  title="Sobre & Trajetória Acadêmica | André Luiz Pianca"
+  description="Currículo detalhado e trajetória acadêmica e profissional de André Luiz Pianca - Físico e Engenheiro Físico (UNICAMP)."
+>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+    <!-- Cabeçalho do Perfil -->
+    <section class="space-y-6 border-b border-slate-800 pb-10">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="badge-tech">Físico &amp; Engenheiro Físico</span>
+        <span class="badge-dark">UNICAMP &bull; IFGW</span>
+        <span class="badge-dark">Campinas, SP</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+        André Luiz Pianca
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+        Sou físico e estudante de Engenharia Física pela <strong class="text-white">Universidade Estadual de Campinas (UNICAMP)</strong>. Minha atuação transita entre os fundamentos teóricos da física moderna e as demandas práticas da engenharia de precisão, com experiência comprovada em modelagem física por parâmetros concentrados, sistemas criogênicos avançados de feixes síncrotron e desenvolvimento de algoritmos numéricos não-lineares em Julia e Python.
+      </p>
+
+      <!-- Cartão de Contato e Identificadores -->
+      <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="text-cyan-400 font-bold font-mono">E-mail:</span>
+            <a href="mailto:andre-lpianca@proton.me" class="hover:text-cyan-300 text-slate-200 underline decoration-slate-700">
+              andre-lpianca@proton.me
+            </a>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="text-cyan-400 font-bold font-mono">Localização:</span>
+            <span>Campinas, São Paulo &bull; Brasil</span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="text-cyan-400 font-bold font-mono">ORCID:</span>
+            <a href="https://orcid.org/0009-0005-9084-688X" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 text-slate-200 underline decoration-slate-700">
+              0009-0005-9084-688X
+            </a>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="text-cyan-400 font-bold font-mono">GitHub:</span>
+            <a href="https://github.com/andrlupi" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 text-slate-200 underline decoration-slate-700">
+              github.com/andrlupi
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atividades Extracurriculares & Liderança Estudantil -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-800 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Engajamento Comunitário &amp; Docência</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Atividades Extracurriculares</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center text-[10px] uppercase tracking-wider font-bold mb-2">
+              <span class="text-cyan-300 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">Monitoria</span>
+              <span class="text-slate-500 font-mono">2025</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-1">F 259 - Física Experimental II</h3>
+            <p class="text-[11px] text-cyan-400 font-medium mb-3">IFGW - UNICAMP</p>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Orientação de turmas de graduação no planejamento experimental, tratamento estatístico de dados e redação de relatórios com rigor científico.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center text-[10px] uppercase tracking-wider font-bold mb-2">
+              <span class="text-cyan-300 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">Monitoria</span>
+              <span class="text-slate-500 font-mono">2024</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-1">F 489 - Estrutura da Matéria II</h3>
+            <p class="text-[11px] text-cyan-400 font-medium mb-3">IFGW - UNICAMP</p>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Plantões de dúvidas e tutoria em física quântica (átomo de Hidrogênio, espectroscopia, estado sólido e modelos atômicos).
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center text-[10px] uppercase tracking-wider font-bold mb-2">
+              <span class="text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Liderança</span>
+              <span class="text-slate-500 font-mono">2021 - 2023</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-1">Atlética "César Lattes"</h3>
+            <p class="text-[11px] text-amber-400 font-medium mb-3">IFGW - UNICAMP</p>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Gestão operacional, planejamento logístico de competições esportivas universitárias e fomento ao espírito de equipe e integração estudantil.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Linha do Tempo Profissional -->
+    <ExperienceTimeline />
+
+    <!-- Formação Acadêmica & Certificações -->
+    <EducationCertifications />
+
+    <!-- Stack de Habilidades -->
+    <SkillsStack />
+  </main>
+</Layout>

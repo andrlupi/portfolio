@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SimulatorWidget from '../components/SimulatorWidget.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import EducationCertifications from '../components/EducationCertifications.astro';
+import SkillsStack from '../components/SkillsStack.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+const featuredProject = sortedProjects[0];
+---
+
+<Layout
+  title="André Luiz Pianca | Físico & Engenheiro Físico (UNICAMP)"
+  description="Portfólio de André Luiz Pianca (UNICAMP) - Modelagem física não-linear, co-design termo-mecânico, sistemas criogênicos (Sirius/LNLS) e computação científica em Julia."
+>
+  <Hero />
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-20">
+    <!-- Destaque: Projeto EMA-C & Simulador Interativo -->
+    {featuredProject && (
+      <section id="projeto-destaque" class="space-y-8 scroll-mt-20">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-800/80 pb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Destaque de Engenharia</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+              Co-Design &amp; Modelagem Criogênica (Sirius)
+            </h2>
+          </div>
+          <a
+            href="/projetos/ema-cryo"
+            class="text-xs font-bold text-cyan-300 hover:text-cyan-200 flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+          >
+            <span>Ver página dedicada do projeto</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8">
+          <ProjectCard
+            title={featuredProject.data.title}
+            slug={featuredProject.slug}
+            tagline={featuredProject.data.tagline}
+            description={featuredProject.data.description}
+            tags={featuredProject.data.tags}
+            category={featuredProject.data.category}
+            metrics={featuredProject.data.metrics}
+            coverImage={featuredProject.data.coverImage}
+            repoUrl={featuredProject.data.repoUrl}
+            featured={true}
+          />
+
+          <!-- Simulador Hidratado sob Demanda -->
+          <SimulatorWidget title="Simulador Interativo: Avaliação de Interfaces Criogênicas (EMA-nano)" />
+        </div>
+      </section>
+    )}
+
+    <!-- Experiência Profissional & Atuação -->
+    <ExperienceTimeline />
+
+    <!-- Formação Acadêmica & Certificações Internacionais -->
+    <EducationCertifications />
+
+    <!-- Competências & Stack Técnico -->
+    <SkillsStack />
+
+    <!-- CTA / Contato Rápido -->
+    <section class="glass-panel p-8 sm:p-12 text-center bg-gradient-to-b from-[#0e172a]/90 to-[#070b16] border border-cyan-500/30 rounded-3xl relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(6,182,212,0.1),rgba(255,255,255,0))] pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Vamos Conversar?</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+          Disponível para Pesquisa, P&amp;D e Projetos de Alta Complexidade
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Seja para discutir desafios em criogenia, instrumentação científica, modelagem matemática em Julia ou desenvolvimento de engenharia física, estou à disposição para contato.
+        </p>
+        <div class="pt-2 flex flex-wrap justify-center gap-3">
+          <a
+            href="mailto:andre-lpianca@proton.me"
+            class="px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-400/20"
+          >
+            Enviar E-mail (andre-lpianca@proton.me)
+          </a>
+          <a
+            href="https://linkedin.com/in/andre-lpianca"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 transition-all"
+          >
+            Conectar no LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

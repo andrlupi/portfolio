@@ -1,0 +1,77 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'André Luiz Pianca | Físico & Engenheiro Físico',
+  description = 'Portfólio de André Luiz Pianca (UNICAMP) - Especialista em Modelagem Criogênica, Simulação Numérica Não-Linear, Co-Design Termo-Mecânico e Instrumentação Científica.',
+  image = '/figures/codesign_pareto_study.png',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://andrlupi.github.io');
+---
+
+<!doctype html>
+<html lang="pt-BR" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primários SEO -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="André Luiz Pianca" />
+    <meta name="keywords" content="André Luiz Pianca, Física, Engenharia Física, UNICAMP, Criogenia, Sirius, LNLS, CNPEM, Julia, Simulação Térmica, Newton-Raphson, Rosenbrock, Co-design" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
+    <meta property="og:site_name" content="André Luiz Pianca Portfolio" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    <!-- Fontes Google e KaTeX CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#070a12] text-slate-300 selection:bg-cyan-500/20 selection:text-cyan-300">
+    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(6,182,212,0.12),rgba(255,255,255,0))] z-0"></div>
+    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_80%_50%,rgba(37,99,235,0.06),rgba(255,255,255,0))] z-0"></div>
+
+    <Header />
+
+    <div class="relative z-10 flex-1 flex flex-col">
+      <slot />
+    </div>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,143 @@
+---
+const navLinks = [
+  { name: 'Início', href: '/' },
+  { name: 'Sobre & CV', href: '/sobre' },
+  { name: 'Projetos', href: '/projetos' },
+  { name: 'EMA-C Sirius', href: '/projetos/ema-cryo', isHighlight: true },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#070a12]/85 backdrop-blur-lg">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Brand / Nome -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 group-hover:border-cyan-400/70 transition-colors">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span class="absolute w-4 h-4 rounded-full border border-cyan-400/40 animate-ping"></span>
+      </div>
+      <div>
+        <div class="text-sm font-extrabold tracking-wider text-slate-100 group-hover:text-cyan-300 transition-colors">
+          ANDRÉ LUIZ PIANCA
+        </div>
+        <div class="text-[10px] font-medium tracking-wide text-slate-400">
+          UNICAMP &bull; Física & Engenharia Física
+        </div>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-1.5 text-xs font-semibold">
+      {
+        navLinks.map((link) => {
+          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+          return (
+            <a
+              href={link.href}
+              class={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                isActive
+                  ? 'text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 shadow-sm shadow-cyan-500/10'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+              }`}
+            >
+              {link.name}
+              {link.isHighlight && (
+                <span class="text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                  Destaque
+                </span>
+              )}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <!-- Socials & Contato -->
+    <div class="hidden sm:flex items-center gap-2.5">
+      <a
+        href="https://github.com/andrlupi"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors border border-transparent hover:border-slate-700"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+        </svg>
+      </a>
+
+      <a
+        href="https://linkedin.com/in/andre-lpianca"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors border border-transparent hover:border-slate-700"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2m1.4 9.74V10.13H5.06v8.37h2.8z" />
+        </svg>
+      </a>
+
+      <a
+        href="mailto:andre-lpianca@proton.me"
+        class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-sm shadow-cyan-400/20"
+      >
+        Contato
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="flex md:hidden items-center gap-2">
+      <a
+        href="/projetos/ema-cryo"
+        class="text-[11px] font-bold text-cyan-300 bg-cyan-500/10 px-2 py-1 rounded border border-cyan-500/30"
+      >
+        EMA-C
+      </a>
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none"
+        aria-label="Abrir menu"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-[#0a0f1d] px-4 py-3 space-y-2 text-xs font-semibold">
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block px-3 py-2 rounded-lg text-slate-300 hover:text-cyan-300 hover:bg-slate-800/60 transition-colors"
+        >
+          {link.name}
+        </a>
+      ))
+    }
+    <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/andrlupi" target="_blank" class="text-slate-400 hover:text-white text-xs">GitHub</a>
+        <a href="https://linkedin.com/in/andre-lpianca" target="_blank" class="text-slate-400 hover:text-white text-xs">LinkedIn</a>
+      </div>
+      <a href="mailto:andre-lpianca@proton.me" class="px-3 py-1 rounded bg-cyan-400 text-slate-900 text-xs font-bold">
+        Email
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>
