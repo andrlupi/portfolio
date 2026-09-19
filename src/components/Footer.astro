@@ -4,20 +4,20 @@ import { getUrl } from '../utils/url';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-slate-800/80 bg-[#05080f] text-slate-400 py-12 px-4 sm:px-6">
+<footer class="border-t border-ctp-surface0/80 bg-ctp-crust text-ctp-subtext0 py-12 px-4 sm:px-6">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
     <!-- Bio / Info -->
     <div class="md:col-span-2 space-y-3">
       <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-        <h2 class="text-base font-extrabold tracking-wide text-slate-100">ANDRÉ LUIZ PIANCA</h2>
+        <span class="w-2.5 h-2.5 rounded-full bg-ctp-sapphire"></span>
+        <h2 class="text-base font-extrabold tracking-wide text-ctp-text">ANDRÉ LUIZ PIANCA</h2>
       </div>
-      <p class="text-xs text-slate-400 max-w-md leading-relaxed">
-        Físico e Engenheiro Físico em formação pela <strong class="text-slate-200">UNICAMP</strong>. Processos, Qualidade, Instrumentação, Modelagem e Simulação.
+      <p class="text-xs text-ctp-subtext0 max-w-md leading-relaxed">
+        Físico e Engenheiro Físico em formação pela <strong class="text-ctp-text">UNICAMP</strong>. Processos, Qualidade, Instrumentação, Modelagem e Simulação.
       </p>
-      <div class="pt-1 flex items-center gap-2 text-xs text-slate-400">
-        <span class="inline-flex items-center gap-1 bg-slate-900 px-2 py-1 rounded border border-slate-800">
-          <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="pt-1 flex items-center gap-2 text-xs text-ctp-subtext0">
+        <span class="inline-flex items-center gap-1 bg-ctp-mantle px-2 py-1 rounded border border-ctp-surface0">
+          <svg class="w-3.5 h-3.5 text-ctp-sapphire" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
@@ -28,27 +28,27 @@ const currentYear = new Date().getFullYear();
 
     <!-- Navegação Rápida -->
     <div class="space-y-3">
-      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200">Navegação</h3>
+      <h3 class="text-xs font-bold uppercase tracking-wider text-ctp-text">Navegação</h3>
       <ul class="space-y-2 text-xs">
-        <li><a href={getUrl('/')} class="hover:text-cyan-300 transition-colors">Início</a></li>
-        <li><a href={getUrl('/sobre')} class="hover:text-cyan-300 transition-colors">Sobre &amp; CV Detalhado</a></li>
-        <li><a href={getUrl('/projetos')} class="hover:text-cyan-300 transition-colors">Portfólio de Projetos</a></li>
-        <li><a href={getUrl('/projetos/ema-cryo')} class="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">Modelagem EMA-C Sirius &rarr;</a></li>
+        <li><a href={getUrl('/')} class="hover:text-ctp-sky transition-colors">Início</a></li>
+        <li><a href={getUrl('/sobre')} class="hover:text-ctp-sky transition-colors">Sobre &amp; CV Detalhado</a></li>
+        <li><a href={getUrl('/projetos')} class="hover:text-ctp-sky transition-colors">Portfólio de Projetos</a></li>
+        <li><a href={getUrl('/projetos/ema-cryo')} class="text-ctp-sky hover:text-ctp-sapphire transition-colors font-medium">Modelagem EMA-C Sirius &rarr;</a></li>
       </ul>
     </div>
 
     <!-- Identificadores Científicos & Redes -->
     <div class="space-y-3">
-      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200">Presença Científica</h3>
+      <h3 class="text-xs font-bold uppercase tracking-wider text-ctp-text">Presença Científica</h3>
       <ul class="space-y-2 text-xs">
         <li>
           <a
             href="https://orcid.org/0009-0005-9084-688X"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 hover:text-cyan-300 transition-colors"
+            class="flex items-center gap-2 hover:text-ctp-sky transition-colors"
           >
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span class="w-2 h-2 rounded-full bg-ctp-green"></span>
             ORCID: 0009-0005-9084-688X
           </a>
         </li>
@@ -57,9 +57,9 @@ const currentYear = new Date().getFullYear();
             href="https://github.com/andrlupi"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 hover:text-cyan-300 transition-colors"
+            class="flex items-center gap-2 hover:text-ctp-sky transition-colors"
           >
-            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+            <span class="w-2 h-2 rounded-full bg-ctp-subtext0"></span>
             GitHub: @andrlupi
           </a>
         </li>
@@ -68,18 +68,18 @@ const currentYear = new Date().getFullYear();
             href="https://linkedin.com/in/andre-lpianca"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 hover:text-cyan-300 transition-colors"
+            class="flex items-center gap-2 hover:text-ctp-sky transition-colors"
           >
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span class="w-2 h-2 rounded-full bg-ctp-blue"></span>
             LinkedIn: in/andre-lpianca
           </a>
         </li>
         <li>
           <a
             href="mailto:andre-lpianca@proton.me"
-            class="flex items-center gap-2 hover:text-cyan-300 transition-colors text-slate-300"
+            class="flex items-center gap-2 hover:text-ctp-sky transition-colors text-ctp-subtext1"
           >
-            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span class="w-2 h-2 rounded-full bg-ctp-sapphire"></span>
             andre-lpianca@proton.me
           </a>
         </li>
@@ -87,13 +87,13 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 
-  <div class="max-w-6xl mx-auto pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+  <div class="max-w-6xl mx-auto pt-6 border-t border-ctp-surface0/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-ctp-overlay1">
     <div>
       &copy; {currentYear} André Luiz Pianca. Todos os direitos reservados.
     </div>
     <div class="flex items-center gap-4">
-      <span class="text-slate-400">Astro 5 &bull; Tailwind CSS &bull; SSG Zero-JS</span>
-      <a href="https://github.com/andrlupi/portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-slate-200 underline decoration-slate-700">
+      <span class="text-ctp-subtext0">Astro 5 &bull; Tailwind CSS (Catppuccin Mocha) &bull; SSG Zero-JS</span>
+      <a href="https://github.com/andrlupi/portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-ctp-text underline decoration-ctp-surface1">
         Repositório GitHub
       </a>
     </div>

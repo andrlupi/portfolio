@@ -12,19 +12,19 @@ const {
 } = Astro.props;
 ---
 
-<div class="glass-panel p-5 sm:p-7 border border-cyan-500/30 bg-[#0c1322]/90 rounded-2xl shadow-xl shadow-cyan-950/20" id="thermal-simulator">
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-800">
+<div class="glass-panel p-5 sm:p-7 border border-ctp-sapphire/40 bg-ctp-mantle/90 rounded-2xl shadow-xl shadow-ctp-crust/50" id="thermal-simulator">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-ctp-surface0">
     <div>
       <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Micro-Simulador Físico</span>
+        <span class="w-2 h-2 rounded-full bg-ctp-sapphire animate-ping"></span>
+        <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">Micro-Simulador Físico</span>
       </div>
-      <h3 class="text-lg sm:text-xl font-extrabold text-white mt-1">{title}</h3>
+      <h3 class="text-lg sm:text-xl font-extrabold text-ctp-text mt-1">{title}</h3>
     </div>
     {showDetailsLink && (
       <a
         href={getUrl('/projetos/ema-cryo')}
-        class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 hover:text-cyan-200 bg-cyan-500/10 hover:bg-cyan-500/20 px-3 py-1.5 rounded-lg border border-cyan-500/30 transition-colors self-start sm:self-auto"
+        class="inline-flex items-center gap-1.5 text-xs font-bold text-ctp-sky hover:text-ctp-crust bg-ctp-surface0 hover:bg-ctp-sapphire px-3 py-1.5 rounded-lg border border-ctp-sapphire/40 transition-all self-start sm:self-auto"
       >
         <span>Ver Estudo Completo</span>
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@ const {
     <div class="lg:col-span-5 space-y-5">
       <!-- Seletor de Interface -->
       <div class="space-y-2">
-        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">
+        <label class="block text-xs font-bold uppercase tracking-wider text-ctp-subtext1 font-mono">
           1. Selecionar Interface Térmica
         </label>
         <div class="grid grid-cols-1 gap-2 text-xs" id="interface-selector">
@@ -48,13 +48,13 @@ const {
             data-r="0.095"
             data-label="Folha de Índio (P ≥ 2.5 MPa)"
             data-type="indium"
-            class="sim-option active text-left p-3 rounded-xl border border-cyan-400 bg-cyan-950/40 text-white font-medium flex items-center justify-between transition-all"
+            class="sim-option active text-left p-3 rounded-xl border border-ctp-sapphire bg-ctp-surface0/90 text-ctp-text font-medium flex items-center justify-between transition-all"
           >
             <div>
-              <div class="font-bold text-cyan-300">Folha de Índio sob Aperto</div>
-              <div class="text-[11px] text-slate-400">Escoamento plástico (P &ge; 2.5 MPa)</div>
+              <div class="font-bold text-ctp-sky">Folha de Índio sob Aperto</div>
+              <div class="text-[11px] text-ctp-subtext0">Escoamento plástico (P &ge; 2.5 MPa)</div>
             </div>
-            <span class="text-[11px] font-mono font-bold bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/40">
+            <span class="text-[11px] font-mono font-bold bg-ctp-surface1 text-ctp-sky px-2 py-0.5 rounded border border-ctp-sapphire/40">
               R &approx; 0.095 K/W
             </span>
           </button>
@@ -64,13 +64,13 @@ const {
             data-r="2.0"
             data-label="Contato Seco Metal-Metal"
             data-type="dry"
-            class="sim-option text-left p-3 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900/60 text-slate-300 font-medium flex items-center justify-between transition-all"
+            class="sim-option text-left p-3 rounded-xl border border-ctp-surface0 hover:border-ctp-surface1 bg-ctp-mantle text-ctp-subtext1 font-medium flex items-center justify-between transition-all"
           >
             <div>
-              <div class="font-bold text-slate-200">Contato Seco Metal-Metal</div>
-              <div class="text-[11px] text-slate-500">Sem junta deformável interfacial</div>
+              <div class="font-bold text-ctp-text">Contato Seco Metal-Metal</div>
+              <div class="text-[11px] text-ctp-overlay0">Sem junta deformável interfacial</div>
             </div>
-            <span class="text-[11px] font-mono font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">
+            <span class="text-[11px] font-mono font-bold bg-ctp-surface0 text-ctp-subtext0 px-2 py-0.5 rounded border border-ctp-surface0">
               R &approx; 2.0 K/W
             </span>
           </button>
@@ -80,13 +80,13 @@ const {
             data-r="3.6"
             data-label="Gás de Troca ⁴He (folga 2mm)"
             data-type="gas"
-            class="sim-option text-left p-3 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900/60 text-slate-300 font-medium flex items-center justify-between transition-all"
+            class="sim-option text-left p-3 rounded-xl border border-ctp-surface0 hover:border-ctp-surface1 bg-ctp-mantle text-ctp-subtext1 font-medium flex items-center justify-between transition-all"
           >
             <div>
-              <div class="font-bold text-slate-200">Gás de Troca (⁴He estático)</div>
-              <div class="text-[11px] text-slate-500">Isola vibrações; folga 2 mm</div>
+              <div class="font-bold text-ctp-text">Gás de Troca (⁴He estático)</div>
+              <div class="text-[11px] text-ctp-overlay0">Isola vibrações; folga 2 mm</div>
             </div>
-            <span class="text-[11px] font-mono font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">
+            <span class="text-[11px] font-mono font-bold bg-ctp-surface0 text-ctp-subtext0 px-2 py-0.5 rounded border border-ctp-surface0">
               R &approx; 3.6 K/W
             </span>
           </button>
@@ -94,11 +94,11 @@ const {
       </div>
 
       <!-- Sliders de Aporte Térmico -->
-      <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800/80 space-y-4">
+      <div class="p-4 rounded-xl bg-ctp-surface0/60 border border-ctp-surface0 space-y-4">
         <div>
           <div class="flex justify-between text-xs font-semibold mb-1.5">
-            <span class="text-slate-300">Carga do Feixe Síncrotron (<span class="font-mono text-cyan-300">q_beam</span>):</span>
-            <span class="font-mono text-cyan-400 font-bold" id="val-qbeam">10 mW</span>
+            <span class="text-ctp-subtext1">Carga do Feixe Síncrotron (<span class="font-mono text-ctp-sky">q_beam</span>):</span>
+            <span class="font-mono text-ctp-sky font-bold" id="val-qbeam">10 mW</span>
           </div>
           <input
             type="range"
@@ -107,14 +107,14 @@ const {
             max="35"
             step="1"
             value="10"
-            class="w-full accent-cyan-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+            class="w-full accent-ctp-sapphire cursor-pointer h-1.5 bg-ctp-crust rounded-lg"
           />
         </div>
 
         <div>
           <div class="flex justify-between text-xs font-semibold mb-1.5">
-            <span class="text-slate-300">Parasitas Condução + Radiação (<span class="font-mono text-cyan-300">q_para</span>):</span>
-            <span class="font-mono text-cyan-400 font-bold" id="val-qpara">15 mW</span>
+            <span class="text-ctp-subtext1">Parasitas Condução + Radiação (<span class="font-mono text-ctp-sky">q_para</span>):</span>
+            <span class="font-mono text-ctp-sky font-bold" id="val-qpara">15 mW</span>
           </div>
           <input
             type="range"
@@ -123,7 +123,7 @@ const {
             max="30"
             step="1"
             value="15"
-            class="w-full accent-cyan-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+            class="w-full accent-ctp-sapphire cursor-pointer h-1.5 bg-ctp-crust rounded-lg"
           />
         </div>
       </div>
@@ -132,57 +132,57 @@ const {
     <!-- Visualização e Diagrama Térmico Interativo -->
     <div class="lg:col-span-7 flex flex-col justify-between space-y-5">
       <!-- Diagrama SVG Dinâmico -->
-      <div class="p-5 rounded-2xl bg-[#080d19] border border-slate-800 relative overflow-hidden">
+      <div class="p-5 rounded-2xl bg-ctp-crust border border-ctp-surface0 relative overflow-hidden">
         <div class="flex justify-between items-center mb-3 text-xs">
-          <span class="font-bold text-slate-400 uppercase tracking-wider font-mono">Balanço Térmico em Tempo Real</span>
-          <span id="badge-status" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          <span class="font-bold text-ctp-subtext0 uppercase tracking-wider font-mono">Balanço Térmico em Tempo Real</span>
+          <span id="badge-status" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-ctp-green/20 text-ctp-green border border-ctp-green/40">
             Regime Seguro (&lt; 6.0 K)
           </span>
         </div>
 
         <svg class="w-full h-auto py-2" viewBox="0 0 460 140" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Fonte Fria (Criostato) -->
-          <rect x="15" y="25" width="105" height="90" rx="10" fill="#082f49" stroke="#0284c7" stroke-width="2" />
-          <text x="67" y="60" fill="#38bdf8" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Criocooler</text>
-          <text x="67" y="80" fill="#bae6fd" font-family="JetBrains Mono, monospace" font-size="12" font-weight="bold" text-anchor="middle">4.20 K</text>
-          <text x="67" y="98" fill="#7dd3fc" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Fonte Fria</text>
+          <rect x="15" y="25" width="105" height="90" rx="10" fill="#181825" stroke="#74c7ec" stroke-width="2" />
+          <text x="67" y="60" fill="#89dceb" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Criocooler</text>
+          <text x="67" y="80" fill="#cdd6f4" font-family="JetBrains Mono, monospace" font-size="12" font-weight="bold" text-anchor="middle">4.20 K</text>
+          <text x="67" y="98" fill="#b4befe" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Fonte Fria</text>
 
           <!-- Linha de Fluxo Térmico 1 -->
-          <line x1="120" y1="70" x2="190" y2="70" stroke="#334155" stroke-dasharray="4 4" stroke-width="2" />
-          <path id="flow-path" d="M 120 70 L 190 70" stroke="#22d3ee" stroke-width="3" class="flow-line" />
+          <line x1="120" y1="70" x2="190" y2="70" stroke="#45475a" stroke-dasharray="4 4" stroke-width="2" />
+          <path id="flow-path" d="M 120 70 L 190 70" stroke="#89dceb" stroke-width="3" class="flow-line" />
 
           <!-- Bloco da Interface -->
-          <rect id="rect-interface" x="190" y="35" width="80" height="70" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
-          <text x="230" y="65" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Interface</text>
-          <text id="svg-interface-text" x="230" y="83" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Índio</text>
+          <rect id="rect-interface" x="190" y="35" width="80" height="70" rx="8" fill="#313244" stroke="#74c7ec" stroke-width="2" />
+          <text x="230" y="65" fill="#cdd6f4" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Interface</text>
+          <text id="svg-interface-text" x="230" y="83" fill="#89dceb" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Índio</text>
 
           <!-- Linha de Fluxo Térmico 2 -->
-          <line x1="270" y1="70" x2="340" y2="70" stroke="#334155" stroke-dasharray="4 4" stroke-width="2" />
-          <path d="M 270 70 L 340 70" stroke="#22d3ee" stroke-width="3" class="flow-line" />
+          <line x1="270" y1="70" x2="340" y2="70" stroke="#45475a" stroke-dasharray="4 4" stroke-width="2" />
+          <path d="M 270 70 L 340 70" stroke="#89dceb" stroke-width="3" class="flow-line" />
 
           <!-- Amostra Mini-DAC -->
-          <rect id="rect-dac" x="340" y="25" width="105" height="90" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2" />
-          <text x="392" y="58" fill="#a7f3d0" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Mini-DAC</text>
-          <text id="svg-tdac-text" x="392" y="80" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="14" font-weight="900" text-anchor="middle">4.93 K</text>
-          <text id="svg-feixe-text" x="392" y="98" fill="#6ee7b7" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">+25 mW feixe</text>
+          <rect id="rect-dac" x="340" y="25" width="105" height="90" rx="10" fill="#182c25" stroke="#a6e3a1" stroke-width="2" />
+          <text x="392" y="58" fill="#a6e3a1" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Mini-DAC</text>
+          <text id="svg-tdac-text" x="392" y="80" fill="#a6e3a1" font-family="JetBrains Mono, monospace" font-size="14" font-weight="900" text-anchor="middle">4.93 K</text>
+          <text id="svg-feixe-text" x="392" y="98" fill="#94e2d5" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">+25 mW feixe</text>
         </svg>
       </div>
 
       <!-- Métricas Calculadas -->
       <div class="grid grid-cols-3 gap-3 text-center">
-        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-          <div class="text-[10px] uppercase font-bold text-slate-400">Fluxo Total (Q)</div>
-          <div class="text-sm sm:text-base font-black text-white font-mono mt-0.5" id="val-qtotal">25.0 mW</div>
+        <div class="p-3 rounded-xl bg-ctp-surface0/60 border border-ctp-surface0">
+          <div class="text-[10px] uppercase font-bold text-ctp-subtext0">Fluxo Total (Q)</div>
+          <div class="text-sm sm:text-base font-black text-ctp-text font-mono mt-0.5" id="val-qtotal">25.0 mW</div>
         </div>
 
-        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-          <div class="text-[10px] uppercase font-bold text-slate-400">&Delta;T na Junta</div>
-          <div class="text-sm sm:text-base font-black text-cyan-300 font-mono mt-0.5" id="val-deltat">+0.73 K</div>
+        <div class="p-3 rounded-xl bg-ctp-surface0/60 border border-ctp-surface0">
+          <div class="text-[10px] uppercase font-bold text-ctp-subtext0">&Delta;T na Junta</div>
+          <div class="text-sm sm:text-base font-black text-ctp-sky font-mono mt-0.5" id="val-deltat">+0.73 K</div>
         </div>
 
-        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800" id="box-tdac">
-          <div class="text-[10px] uppercase font-bold text-slate-400">T_DAC Operação</div>
-          <div class="text-sm sm:text-base font-black text-emerald-400 font-mono mt-0.5" id="val-tdac">4.93 K</div>
+        <div class="p-3 rounded-xl bg-ctp-surface0/60 border border-ctp-surface0" id="box-tdac">
+          <div class="text-[10px] uppercase font-bold text-ctp-subtext0">T_DAC Operação</div>
+          <div class="text-sm sm:text-base font-black text-ctp-green font-mono mt-0.5" id="val-tdac">4.93 K</div>
         </div>
       </div>
     </div>
@@ -216,7 +216,7 @@ const {
       const qTotalW = qTotalMW / 1000.0;
 
       const tCriocooler = 4.20;
-      const tDac = tCriocooler + (qTotalW * selectedR * 300); // escala física calibrada
+      const tDac = tCriocooler + (qTotalW * selectedR * 300);
 
       if (valQbeam) valQbeam.textContent = `${qBeam} mW`;
       if (valQpara) valQpara.textContent = `${qPara} mW`;
@@ -231,22 +231,22 @@ const {
       if (badgeStatus) {
         if (isSafe) {
           badgeStatus.textContent = 'Regime Seguro (< 6.0 K)';
-          badgeStatus.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+          badgeStatus.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-ctp-green/20 text-ctp-green border border-ctp-green/40';
         } else {
           badgeStatus.textContent = 'Alerta: T > 6.0 K (Degradação)';
-          badgeStatus.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30';
+          badgeStatus.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-ctp-red/20 text-ctp-red border border-ctp-red/40';
         }
       }
 
       if (rectDac && svgTdacText) {
         if (isSafe) {
-          rectDac.setAttribute('fill', '#064e3b');
-          rectDac.setAttribute('stroke', '#10b981');
-          svgTdacText.setAttribute('fill', '#34d399');
+          rectDac.setAttribute('fill', '#182c25');
+          rectDac.setAttribute('stroke', '#a6e3a1');
+          svgTdacText.setAttribute('fill', '#a6e3a1');
         } else {
-          rectDac.setAttribute('fill', '#4c0519');
-          rectDac.setAttribute('stroke', '#f43f5e');
-          svgTdacText.setAttribute('fill', '#fb7185');
+          rectDac.setAttribute('fill', '#361c24');
+          rectDac.setAttribute('stroke', '#f38ba8');
+          svgTdacText.setAttribute('fill', '#f38ba8');
         }
       }
     }
@@ -254,12 +254,12 @@ const {
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
         buttons.forEach((b) => {
-          b.classList.remove('border-cyan-400', 'bg-cyan-950/40', 'text-white');
-          b.classList.add('border-slate-800', 'bg-slate-900/60', 'text-slate-300');
+          b.classList.remove('border-ctp-sapphire', 'bg-ctp-surface0/90', 'text-ctp-text');
+          b.classList.add('border-ctp-surface0', 'bg-ctp-mantle', 'text-ctp-subtext1');
         });
 
-        btn.classList.remove('border-slate-800', 'bg-slate-900/60', 'text-slate-300');
-        btn.classList.add('border-cyan-400', 'bg-cyan-950/40', 'text-white');
+        btn.classList.remove('border-ctp-surface0', 'bg-ctp-mantle', 'text-ctp-subtext1');
+        btn.classList.add('border-ctp-sapphire', 'bg-ctp-surface0/90', 'text-ctp-text');
 
         selectedR = parseFloat(btn.getAttribute('data-r') || '0.095');
         selectedType = btn.getAttribute('data-type') || 'indium';
@@ -278,7 +278,6 @@ const {
     update();
   }
 
-  // Executa ao carregar e com suporte a transições Astro ViewTransitions se ativadas
   document.addEventListener('DOMContentLoaded', setupSimulator);
   setupSimulator();
 </script>

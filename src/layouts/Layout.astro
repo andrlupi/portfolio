@@ -29,12 +29,24 @@ const resolvedImage = new URL(getUrl(image), canonicalURL);
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Script de Inicialização do Tema Catppuccin (Mocha / Latte) -->
+    <script is:inline>
+      const theme = localStorage.getItem('catppuccin-theme');
+      if (theme === 'latte') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('latte');
+      } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('latte');
+      }
+    </script>
+
     <!-- Primários SEO -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content="André Luiz Pianca" />
-    <meta name="keywords" content="André Luiz Pianca, Física, Engenharia Física, UNICAMP, Qualidade, Processos, Dispositivos Médicos, Criogenia, Sirius, LNLS, CNPEM, Julia, Simulação Térmica" />
+    <meta name="keywords" content="André Luiz Pianca, Física, Engenharia Física, UNICAMP, Processos, Qualidade, Criogenia, Sirius, LNLS, CNPEM, Julia, Simulação Térmica" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
@@ -64,9 +76,10 @@ const resolvedImage = new URL(getUrl(image), canonicalURL);
       crossorigin="anonymous"
     />
   </head>
-  <body class="min-h-screen flex flex-col bg-[#070a12] text-slate-300 selection:bg-cyan-500/20 selection:text-cyan-300">
-    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(6,182,212,0.12),rgba(255,255,255,0))] z-0"></div>
-    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_80%_50%,rgba(37,99,235,0.06),rgba(255,255,255,0))] z-0"></div>
+  <body class="min-h-screen flex flex-col bg-ctp-base text-ctp-text selection:bg-ctp-sapphire/25 selection:text-ctp-sky">
+    <!-- Efeitos de iluminação sutil Catppuccin -->
+    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(116,199,236,0.1),rgba(255,255,255,0))] z-0"></div>
+    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_80%_50%,rgba(203,166,247,0.06),rgba(255,255,255,0))] z-0"></div>
 
     <Header />
 

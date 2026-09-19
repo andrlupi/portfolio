@@ -5,26 +5,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#070a12',
-        surface: '#0d1322',
-        'surface-card': '#131b2e',
-        'surface-border': '#1e293b',
-        cryo: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-        },
-        deepblue: {
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          900: '#1e3a8a',
+        // Catppuccin Theme Palette (Dynamic Mocha / Latte via CSS Variables)
+        ctp: {
+          rosewater: 'rgb(var(--ctp-rosewater) / <alpha-value>)',
+          flamingo: 'rgb(var(--ctp-flamingo) / <alpha-value>)',
+          pink: 'rgb(var(--ctp-pink) / <alpha-value>)',
+          mauve: 'rgb(var(--ctp-mauve) / <alpha-value>)',
+          red: 'rgb(var(--ctp-red) / <alpha-value>)',
+          maroon: 'rgb(var(--ctp-maroon) / <alpha-value>)',
+          peach: 'rgb(var(--ctp-peach) / <alpha-value>)',
+          yellow: 'rgb(var(--ctp-yellow) / <alpha-value>)',
+          green: 'rgb(var(--ctp-green) / <alpha-value>)',
+          teal: 'rgb(var(--ctp-teal) / <alpha-value>)',
+          sky: 'rgb(var(--ctp-sky) / <alpha-value>)',
+          sapphire: 'rgb(var(--ctp-sapphire) / <alpha-value>)',
+          blue: 'rgb(var(--ctp-blue) / <alpha-value>)',
+          lavender: 'rgb(var(--ctp-lavender) / <alpha-value>)',
+          text: 'rgb(var(--ctp-text) / <alpha-value>)',
+          subtext1: 'rgb(var(--ctp-subtext1) / <alpha-value>)',
+          subtext0: 'rgb(var(--ctp-subtext0) / <alpha-value>)',
+          overlay2: 'rgb(var(--ctp-overlay2) / <alpha-value>)',
+          overlay1: 'rgb(var(--ctp-overlay1) / <alpha-value>)',
+          overlay0: 'rgb(var(--ctp-overlay0) / <alpha-value>)',
+          surface2: 'rgb(var(--ctp-surface2) / <alpha-value>)',
+          surface1: 'rgb(var(--ctp-surface1) / <alpha-value>)',
+          surface0: 'rgb(var(--ctp-surface0) / <alpha-value>)',
+          base: 'rgb(var(--ctp-base) / <alpha-value>)',
+          mantle: 'rgb(var(--ctp-mantle) / <alpha-value>)',
+          crust: 'rgb(var(--ctp-crust) / <alpha-value>)',
         },
       },
       fontFamily: {
@@ -33,13 +41,6 @@ export default {
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'glow-cyan': 'glowCyan 2s ease-in-out infinite alternate',
-      },
-      keyframes: {
-        glowCyan: {
-          '0%': { boxShadow: '0 0 5px rgba(6, 182, 212, 0.2)' },
-          '100%': { boxShadow: '0 0 20px rgba(6, 182, 212, 0.6)' },
-        },
       },
     },
   },

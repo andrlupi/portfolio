@@ -1,52 +1,47 @@
 ---
-const skillGroups = [
+const categories = [
   {
-    category: "Programação & Computação Científica",
-    icon: "code",
+    id: "programacao",
+    name: "Programação & Computação Científica",
     skills: [
-      { name: "Python", level: "Avançado", desc: "Modelagem numérica, automação e análise de dados" },
-      { name: "Julia", level: "Avançado", desc: "Bibliotecas científicas modulares, solvers não-lineares e simulação térmica" },
-      { name: "C", level: "Intermediário", desc: "Estruturas de dados e conceitos de baixo nível" },
-      { name: "MATLAB", level: "Intermediário", desc: "Cálculo vetorial e simulações analíticas" },
+      "Python",
+      "Julia",
+      "C",
+      "MATLAB",
     ],
   },
   {
-    category: "CAD, Simulação & Engenharia",
-    icon: "cad",
+    id: "cad",
+    name: "CAD, Simulação & Engenharia",
     skills: [
-      { name: "Autodesk Fusion 360 & Inventor", level: "Avançado", desc: "Modelagem paramétrica 3D e projetos de máquinas" },
-      { name: "AutoCAD & Desenho Técnico", level: "Avançado", desc: "Formação técnica COTIL-UNICAMP, toleranciamento e desenho industrial" },
-      { name: "Simulink & Simscape", level: "Avançado", desc: "Modelagem física multidisciplinar e simulação dinâmica" },
-      { name: "Ansys", level: "Intermediário", desc: "Análise por elementos finitos (FEA)" },
+      "Autodesk Fusion 360 & Inventor",
+      "AutoCAD & Desenho Técnico",
+      "Simulink & Simscape",
+      "Ansys (FEA)",
     ],
   },
   {
-    category: "Instrumentação & Física Aplicada",
-    icon: "lab",
+    id: "fisica",
+    name: "Instrumentação & Física Aplicada",
     skills: [
-      { name: "Criogenia (< 10 K)", level: "Avançado", desc: "Sistemas de dedo frio, criorefrigeradores e interfaces térmicas" },
-      { name: "Tecnologia de Vácuo", level: "Avançado", desc: "Alto vácuo em câmaras de teste e instrumentação científica" },
-      { name: "Modelagem Térmica", level: "Avançado", desc: "Parâmetros concentrados (lumped-mass) e transformada de Kirchhoff" },
-      { name: "Instrumentação Geral", level: "Avançado", desc: "Sensores, termometria de precisão e aquisição de dados" },
+      "Criogenia (< 10 K)",
+      "Tecnologia de Vácuo",
+      "Modelagem Térmica (Lumped-Mass)",
+      "Transformada de Kirchhoff",
+      "Solvers Não-Lineares (Newton-Raphson & Rosenbrock)",
+      "Instrumentação Geral & Aquisição de Dados",
     ],
   },
   {
-    category: "Processos, Qualidade & Regulação",
-    icon: "quality",
+    id: "softskills",
+    name: "Soft Skills & Ensino",
     skills: [
-      { name: "Gestão da Qualidade (SGQ)", level: "Prática Ativa", desc: "Estruturação de documentação técnica, procedimentos e registros" },
-      { name: "Dispositivos Médicos & Regulação", level: "Prática Ativa", desc: "Conformidade normativa e apoio a assuntos regulatórios" },
-      { name: "Padronização de Processos", level: "Prática Ativa", desc: "Mapeamento de fluxos, ferramentas da qualidade e indicadores" },
-      { name: "Governança & Decisão", level: "Prática Ativa", desc: "Apoio a fluxos decisórios institucionais" },
+      "Divulgação Científica & Mediação",
+      "Trabalho em Equipe & Liderança",
+      "Planejamento e Gestão de Projetos",
+      "Didática Experimental",
     ],
   },
-];
-
-const softSkills = [
-  "Divulgação Científica & Mediação",
-  "Trabalho em Equipe & Liderança",
-  "Planejamento e Gestão de Projetos",
-  "Didática Experimental",
 ];
 
 const languages = [
@@ -57,61 +52,99 @@ const languages = [
 ];
 ---
 
-<section id="skills" class="space-y-8 pt-4">
-  <div class="border-b border-slate-800/80 pb-3">
-    <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Competências &amp; Stack</span>
-    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Competências Técnicas</h2>
+<section id="skills" class="space-y-6 pt-4">
+  <div class="border-b border-ctp-surface0 pb-3">
+    <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">Competências &amp; Ferramentas</span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-ctp-text mt-1">Competências Técnicas</h2>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-    {
-      skillGroups.map((group) => (
-        <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
-          <div>
-            <h3 class="text-sm font-extrabold text-white tracking-wide uppercase flex items-center gap-2 mb-4 pb-2 border-b border-slate-800/60">
-              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-              {group.category}
-            </h3>
+  <!-- Painel Interativo com Seletor por Abas -->
+  <div class="glass-panel p-6 sm:p-7 bg-ctp-mantle/85 border border-ctp-surface0 rounded-2xl shadow-xl shadow-ctp-crust/50 space-y-6">
+    <!-- Seletor de Abas -->
+    <div class="flex flex-wrap gap-2 border-b border-ctp-surface0/80 pb-4" id="skill-tabs-nav" role="tablist">
+      <button
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-todas"
+        id="tab-todas"
+        data-target="todas"
+        class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all border bg-ctp-surface0 text-ctp-sky border-ctp-sapphire/60 shadow-sm"
+      >
+        Todas as Competências
+      </button>
+      {
+        categories.map((cat) => (
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls={`panel-${cat.id}`}
+            id={`tab-${cat.id}`}
+            data-target={cat.id}
+            class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all border bg-ctp-mantle text-ctp-subtext0 border-transparent hover:text-ctp-text hover:bg-ctp-surface0/50 hover:border-ctp-surface1"
+          >
+            {cat.name}
+          </button>
+        ))
+      }
+    </div>
 
+    <!-- Conteúdo dos Painéis (Estilizados no padrão Soft Skills com Bullet e Pills) -->
+    <div id="skill-panels-container">
+      <!-- Painel "Todas as Competências" -->
+      <div id="panel-todas" role="tabpanel" aria-labelledby="tab-todas" class="skill-panel space-y-6 block">
+        {
+          categories.map((cat) => (
             <div class="space-y-3">
-              {group.skills.map((skill) => (
-                <div class="p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/60">
-                  <div class="flex items-center justify-between gap-2">
-                    <span class="text-xs font-bold text-slate-100">{skill.name}</span>
-                    <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
-                      {skill.level}
-                    </span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-normal">{skill.desc}</p>
-                </div>
+              <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-ctp-sky flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-ctp-sapphire"></span>
+                {cat.name}
+              </div>
+              <div class="flex flex-wrap gap-2.5">
+                {cat.skills.map((skill) => (
+                  <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-ctp-surface0 text-ctp-text text-xs sm:text-sm font-medium border border-ctp-surface1 hover:border-ctp-sapphire/50 transition-all shadow-sm">
+                    <span class="text-ctp-sapphire font-bold">&bull;</span>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Painéis Individuais por Categoria -->
+      {
+        categories.map((cat) => (
+          <div
+            id={`panel-${cat.id}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${cat.id}`}
+            class="skill-panel space-y-3 hidden"
+          >
+            <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-ctp-sky flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-ctp-sapphire"></span>
+              {cat.name}
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              {cat.skills.map((skill) => (
+                <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-ctp-surface0 text-ctp-text text-xs sm:text-sm font-medium border border-ctp-surface1 hover:border-ctp-sapphire/50 transition-all shadow-sm">
+                  <span class="text-ctp-sapphire font-bold">&bull;</span>
+                  {skill}
+                </span>
               ))}
             </div>
           </div>
-        </div>
-      ))
-    }
-  </div>
-
-  <!-- Soft Skills e Ensino -->
-  <div class="glass-panel p-5 bg-[#0c1322]/80 border-slate-800">
-    <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono mb-3">
-      Soft Skills &amp; Ensino
-    </h3>
-    <div class="flex flex-wrap gap-2">
-      {
-        softSkills.map((item) => (
-          <span class="text-xs font-medium bg-slate-900 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-800">
-            &bull; {item}
-          </span>
         ))
       }
     </div>
   </div>
 
   <!-- Idiomas -->
-  <div class="glass-panel p-6 bg-[#0c1322]/80 border-slate-800">
-    <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono mb-4 flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div class="glass-panel p-6 bg-ctp-mantle/85 border border-ctp-surface0 rounded-2xl">
+    <h3 class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono mb-4 flex items-center gap-2">
+      <svg class="w-4 h-4 text-ctp-sapphire" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
       </svg>
       Idiomas
@@ -120,14 +153,14 @@ const languages = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {
         languages.map((lang) => (
-          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <div class="p-3.5 rounded-xl bg-ctp-surface0/50 border border-ctp-surface0/90">
             <div class="flex justify-between items-center mb-1">
-              <span class="text-xs font-bold text-white">{lang.name}</span>
-              <span class="text-[11px] font-mono text-cyan-300 font-semibold">{lang.level}</span>
+              <span class="text-xs font-bold text-ctp-text">{lang.name}</span>
+              <span class="text-[11px] font-mono text-ctp-sky font-semibold">{lang.level}</span>
             </div>
-            <div class="text-[10px] text-slate-400 mb-2">{lang.badge}</div>
-            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-              <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-1.5 rounded-full" style={`width: ${lang.pct}%`}></div>
+            <div class="text-[10px] text-ctp-subtext0 mb-2">{lang.badge}</div>
+            <div class="w-full bg-ctp-crust rounded-full h-1.5 overflow-hidden">
+              <div class="bg-gradient-to-r from-ctp-sky to-ctp-blue h-1.5 rounded-full" style={`width: ${lang.pct}%`}></div>
             </div>
           </div>
         ))
@@ -135,3 +168,41 @@ const languages = [
     </div>
   </div>
 </section>
+
+<script>
+  function setupSkillTabs() {
+    const tabButtons = document.querySelectorAll<HTMLButtonElement>('.skill-tab-btn');
+    const panels = document.querySelectorAll<HTMLDivElement>('.skill-panel');
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+
+        // Atualiza botões
+        tabButtons.forEach((b) => {
+          b.setAttribute('aria-selected', 'false');
+          b.classList.remove('bg-ctp-surface0', 'text-ctp-sky', 'border-ctp-sapphire/60', 'shadow-sm');
+          b.classList.add('bg-ctp-mantle', 'text-ctp-subtext0', 'border-transparent');
+        });
+
+        btn.setAttribute('aria-selected', 'true');
+        btn.classList.remove('bg-ctp-mantle', 'text-ctp-subtext0', 'border-transparent');
+        btn.classList.add('bg-ctp-surface0', 'text-ctp-sky', 'border-ctp-sapphire/60', 'shadow-sm');
+
+        // Atualiza painéis
+        panels.forEach((p) => {
+          if (p.id === `panel-${target}`) {
+            p.classList.remove('hidden');
+            p.classList.add('block');
+          } else {
+            p.classList.add('hidden');
+            p.classList.remove('block');
+          }
+        });
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', setupSkillTabs);
+  setupSkillTabs();
+</script>

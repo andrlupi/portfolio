@@ -15,7 +15,6 @@ const experiences = [
       "Acompanhamento de indicadores e apoio administrativo à área.",
     ],
     tags: ["Gestão da Qualidade", "Dispositivos Médicos", "Assuntos Regulatórios", "Padronização de Processos"],
-    color: "cyan",
   },
   {
     role: "Estagiário – Mediação Científica",
@@ -30,7 +29,6 @@ const experiences = [
       "Suporte à logística operacional e atividades educativas do museu.",
     ],
     tags: ["Demonstrações Experimentais", "Didática & Ensino", "Mediação Científica"],
-    color: "emerald",
   },
   {
     role: "Estagiário – P&D em Sistemas Criogênicos",
@@ -45,18 +43,17 @@ const experiences = [
       "Divulgação dos resultados obtidos por meio de flash talk durante o V Congresso de Estudantes do CNPEM.",
     ],
     tags: ["Julia", "Modelagem Térmica", "Lumped-Mass", "Criogenia (< 10 K)", "Sirius / LNLS"],
-    color: "blue",
   },
 ];
 ---
 
 <section id="experiencia" class="space-y-6">
-  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-800/80 pb-4">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-ctp-surface0 pb-4">
     <div>
-      <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Trajetória Profissional</span>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Experiência Profissional</h2>
+      <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">Trajetória Profissional</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-ctp-text mt-1">Experiência Profissional</h2>
     </div>
-    <p class="text-xs text-slate-400 max-w-md">
+    <p class="text-xs text-ctp-subtext0 max-w-md">
       Atuação em governança da qualidade, dispositivos médicos, infraestrutura criogênica de feixes síncrotron e divulgação científica.
     </p>
   </div>
@@ -64,40 +61,40 @@ const experiences = [
   <div class="space-y-4 pt-2">
     {
       experiences.map((exp) => (
-        <div class="glass-panel p-5 sm:p-6 bg-[#0c1322]/80 border-slate-800/80 hover:border-slate-700 transition-all">
+        <div class="glass-panel p-5 sm:p-6 bg-ctp-mantle/85 border border-ctp-surface0 hover:border-ctp-surface1 transition-all">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span class="text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono">{exp.role}</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">{exp.role}</span>
                 {exp.isCurrent && (
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold uppercase tracking-wide animate-pulse">
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-ctp-sapphire/20 text-ctp-sky border border-ctp-sapphire/40 font-bold uppercase tracking-wide animate-pulse">
                     Atual
                   </span>
                 )}
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-semibold">
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-ctp-surface0 text-ctp-subtext1 border border-ctp-surface1 font-semibold">
                   {exp.highlight}
                 </span>
               </div>
-              <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5">{exp.company}</h3>
+              <h3 class="text-base sm:text-lg font-extrabold text-ctp-text mt-0.5">{exp.company}</h3>
             </div>
-            <div class="text-xs text-slate-400 font-medium sm:text-right">
+            <div class="text-xs text-ctp-subtext0 font-medium sm:text-right">
               <div>{exp.period}</div>
-              <div class="text-[11px] text-slate-500">{exp.location}</div>
+              <div class="text-[11px] text-ctp-overlay0">{exp.location}</div>
             </div>
           </div>
 
-          <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mb-4">
+          <ul class="space-y-2 text-xs sm:text-sm text-ctp-subtext1 mb-4">
             {exp.description.map((bullet) => (
               <li class="flex items-start gap-2">
-                <span class="text-cyan-400 mt-1">&bull;</span>
+                <span class="text-ctp-sapphire mt-1">&bull;</span>
                 <span class="leading-relaxed">{bullet}</span>
               </li>
             ))}
           </ul>
 
-          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800/60">
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-ctp-surface0/60">
             {exp.tags.map((tag) => (
-              <span class="text-[11px] font-medium bg-slate-900/90 text-slate-300 px-2.5 py-0.5 rounded-md border border-slate-800">
+              <span class="text-[11px] font-medium bg-ctp-surface0/60 text-ctp-subtext0 px-2.5 py-0.5 rounded-md border border-ctp-surface0">
                 {tag}
               </span>
             ))}

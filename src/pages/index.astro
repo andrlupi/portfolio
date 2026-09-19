@@ -24,19 +24,19 @@ const featuredProject = sortedProjects[0];
     <!-- Destaque: Projeto EMA-C & Simulador Interativo -->
     {featuredProject && (
       <section id="projeto-destaque" class="space-y-8 scroll-mt-20">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-800/80 pb-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-ctp-surface0 pb-4">
           <div>
             <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-              <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Destaque de Engenharia</span>
+              <span class="w-2 h-2 rounded-full bg-ctp-sapphire"></span>
+              <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">Destaque de Engenharia</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-ctp-text mt-1">
               Co-Design &amp; Modelagem Criogênica (Sirius)
             </h2>
           </div>
           <a
             href={getUrl('/projetos/ema-cryo')}
-            class="text-xs font-bold text-cyan-300 hover:text-cyan-200 flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+            class="text-xs font-bold text-ctp-sky hover:text-ctp-teal flex items-center gap-1.5 transition-colors self-start sm:self-auto"
           >
             <span>Ver página dedicada do projeto</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,25 +71,25 @@ const featuredProject = sortedProjects[0];
     <!-- Formação Acadêmica & Certificações Internacionais -->
     <EducationCertifications />
 
-    <!-- Competências & Stack Técnico -->
+    <!-- Competências & Stack Técnico (Abas & Pills) -->
     <SkillsStack />
 
     <!-- CTA / Contato Rápido -->
-    <section class="glass-panel p-8 sm:p-12 text-center bg-gradient-to-b from-[#0e172a]/90 to-[#070b16] border border-cyan-500/30 rounded-3xl relative overflow-hidden">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(6,182,212,0.1),rgba(255,255,255,0))] pointer-events-none"></div>
+    <section class="glass-panel p-8 sm:p-12 text-center bg-gradient-to-b from-ctp-mantle to-ctp-crust border border-ctp-sapphire/40 rounded-3xl relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(116,199,236,0.08),rgba(255,255,255,0))] pointer-events-none"></div>
 
       <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">Vamos Conversar?</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+        <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">Vamos Conversar?</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-ctp-text">
           Disponível para Pesquisa, P&amp;D e Projetos de Alta Complexidade
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          Seja para discutir desafios em criogenia, instrumentação científica, gestão de qualidade e processos ou modelagem computacional em Julia e Python, estou à disposição para contato.
+        <p class="text-xs sm:text-sm text-ctp-subtext1 leading-relaxed">
+          Seja para discutir desafios em criogenia, instrumentação científica, gestão de processos e qualidade ou modelagem computacional em Julia e Python, estou à disposição para contato.
         </p>
         <div class="pt-2 flex flex-wrap justify-center gap-3">
           <a
             href="mailto:andre-lpianca@proton.me"
-            class="px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-400/20"
+            class="px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold text-ctp-crust bg-ctp-sapphire hover:bg-ctp-sky transition-all shadow-lg shadow-ctp-sapphire/20"
           >
             Enviar E-mail (andre-lpianca@proton.me)
           </a>
@@ -97,7 +97,7 @@ const featuredProject = sortedProjects[0];
             href="https://linkedin.com/in/andre-lpianca"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 transition-all"
+            class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-ctp-text bg-ctp-surface0 hover:bg-ctp-surface1 border border-ctp-surface1 transition-all"
           >
             Conectar no LinkedIn
           </a>
