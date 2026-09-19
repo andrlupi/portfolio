@@ -11,7 +11,8 @@ import { getUrl } from '../utils/url';
 
 const projects = await getCollection('projects');
 const sortedProjects = projects.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
-const featuredProject = sortedProjects[0];
+const emaProject = sortedProjects.find((p) => p.slug === 'ema-cryo');
+const tutorProject = sortedProjects.find((p) => p.slug === 'multi-ai-tutor');
 ---
 
 <Layout
@@ -21,49 +22,70 @@ const featuredProject = sortedProjects[0];
   <Hero />
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-20">
-    <!-- Destaque: Projeto EMA-C & Simulador Interativo -->
-    {featuredProject && (
-      <section id="projeto-destaque" class="space-y-8 scroll-mt-20">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-ctp-surface0 pb-4">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-ctp-sapphire"></span>
-              <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">Destaque de Engenharia</span>
-            </div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-ctp-text mt-1">
-              Co-Design &amp; Modelagem Criogênica (Sirius)
-            </h2>
+    <!-- Destaques: Projetos de Pesquisa, Engenharia & IA -->
+    <section id="projetos-destaque" class="space-y-8 scroll-mt-20">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-ctp-surface0 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-ctp-sapphire"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-ctp-sky font-mono">Pesquisa, Engenharia &amp; IA</span>
           </div>
-          <a
-            href={getUrl('/projetos/ema-cryo')}
-            class="text-xs font-bold text-ctp-sky hover:text-ctp-teal flex items-center gap-1.5 transition-colors self-start sm:self-auto"
-          >
-            <span>Ver página dedicada do projeto</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-ctp-text mt-1">
+            Projetos &amp; Desenvolvimento em Destaque
+          </h2>
         </div>
+        <a
+          href={getUrl('/projetos')}
+          class="text-xs font-bold text-ctp-sky hover:text-ctp-teal flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+        >
+          <span>Ver todos os projetos</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
 
-        <div class="grid grid-cols-1 gap-8">
-          <ProjectCard
-            title={featuredProject.data.title}
-            slug={featuredProject.slug}
-            tagline={featuredProject.data.tagline}
-            description={featuredProject.data.description}
-            tags={featuredProject.data.tags}
-            category={featuredProject.data.category}
-            metrics={featuredProject.data.metrics}
-            coverImage={featuredProject.data.coverImage}
-            repoUrl={featuredProject.data.repoUrl}
-            featured={true}
-          />
+      <div class="grid grid-cols-1 gap-10">
+        <!-- Projeto 1: EMA-C (Sirius / LNLS) -->
+        {emaProject && (
+          <div class="space-y-6">
+            <ProjectCard
+              title={emaProject.data.title}
+              slug={emaProject.slug}
+              tagline={emaProject.data.tagline}
+              description={emaProject.data.description}
+              tags={emaProject.data.tags}
+              category={emaProject.data.category}
+              metrics={emaProject.data.metrics}
+              coverImage={emaProject.data.coverImage}
+              repoUrl={emaProject.data.repoUrl}
+              featured={true}
+            />
 
-          <!-- Simulador Hidratado sob Demanda -->
-          <SimulatorWidget title="Simulador Interativo: Avaliação de Interfaces Criogênicas (EMA-nano)" />
-        </div>
-      </section>
-    )}
+            <!-- Simulador Hidratado sob Demanda -->
+            <SimulatorWidget title="Simulador Interativo: Avaliação de Interfaces Criogênicas (EMA-nano)" />
+          </div>
+        )}
+
+        <!-- Projeto 2: Multi-AI-Tutor (Google Gemini & Antigravity) -->
+        {tutorProject && (
+          <div class="space-y-6">
+            <ProjectCard
+              title={tutorProject.data.title}
+              slug={tutorProject.slug}
+              tagline={tutorProject.data.tagline}
+              description={tutorProject.data.description}
+              tags={tutorProject.data.tags}
+              category={tutorProject.data.category}
+              metrics={tutorProject.data.metrics}
+              coverImage={tutorProject.data.coverImage}
+              repoUrl={tutorProject.data.repoUrl}
+              featured={true}
+            />
+          </div>
+        )}
+      </div>
+    </section>
 
     <!-- Experiência Profissional & Atuação -->
     <ExperienceTimeline />
