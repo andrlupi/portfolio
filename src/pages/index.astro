@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import SimulatorWidget from '../components/SimulatorWidget.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ExperienceTimeline from '../components/ExperienceTimeline.astro';
 import EducationCertifications from '../components/EducationCertifications.astro';
@@ -45,44 +44,37 @@ const tutorProject = sortedProjects.find((p) => p.slug === 'multi-ai-tutor');
         </a>
       </div>
 
-      <div class="grid grid-cols-1 gap-10">
+      <div class="grid grid-cols-1 gap-8">
         <!-- Projeto 1: EMA-C (Sirius / LNLS) -->
         {emaProject && (
-          <div class="space-y-6">
-            <ProjectCard
-              title={emaProject.data.title}
-              slug={emaProject.slug}
-              tagline={emaProject.data.tagline}
-              description={emaProject.data.description}
-              tags={emaProject.data.tags}
-              category={emaProject.data.category}
-              metrics={emaProject.data.metrics}
-              coverImage={emaProject.data.coverImage}
-              repoUrl={emaProject.data.repoUrl}
-              featured={true}
-            />
-
-            <!-- Simulador Hidratado sob Demanda -->
-            <SimulatorWidget title="Simulador Interativo: Avaliação de Interfaces Criogênicas (EMA-nano)" />
-          </div>
+          <ProjectCard
+            title={emaProject.data.title}
+            slug={emaProject.slug}
+            tagline={emaProject.data.tagline}
+            description={emaProject.data.description}
+            tags={emaProject.data.tags}
+            category={emaProject.data.category}
+            metrics={emaProject.data.metrics}
+            coverImage={emaProject.data.coverImage}
+            repoUrl={emaProject.data.repoUrl}
+            featured={true}
+          />
         )}
 
         <!-- Projeto 2: Multi-AI-Tutor (Google Gemini & Antigravity) -->
         {tutorProject && (
-          <div class="space-y-6">
-            <ProjectCard
-              title={tutorProject.data.title}
-              slug={tutorProject.slug}
-              tagline={tutorProject.data.tagline}
-              description={tutorProject.data.description}
-              tags={tutorProject.data.tags}
-              category={tutorProject.data.category}
-              metrics={tutorProject.data.metrics}
-              coverImage={tutorProject.data.coverImage}
-              repoUrl={tutorProject.data.repoUrl}
-              featured={true}
-            />
-          </div>
+          <ProjectCard
+            title={tutorProject.data.title}
+            slug={tutorProject.slug}
+            tagline={tutorProject.data.tagline}
+            description={tutorProject.data.description}
+            tags={tutorProject.data.tags}
+            category={tutorProject.data.category}
+            metrics={tutorProject.data.metrics}
+            coverImage={tutorProject.data.coverImage}
+            repoUrl={tutorProject.data.repoUrl}
+            featured={true}
+          />
         )}
       </div>
     </section>
