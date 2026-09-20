@@ -4,7 +4,7 @@ tagline: "Biblioteca científica em Julia para análise térmica não-linear e c
 description: "Modelagem térmica por parâmetros concentrados (Lumped-Parameter Thermal Network) e co-design termo-mecânico da nanoestação da linha de luz EMA do Sirius / LNLS (CNPEM). Implementação com Transformada de Kirchhoff, solvers de Newton-Raphson amortecido e integração de Rosenbrock L-estável."
 featured: true
 order: 1
-publishDate: "2024-04"
+publishDate: "2023 · Redesign 2026"
 repoUrl: "https://github.com/andrlupi/EMA-C_LM-Cryo-Modelling"
 docUrl: "https://github.com/andrlupi/EMA-C_LM-Cryo-Modelling/blob/dev/thermo-mechanical-redesign/docs/RELATORIO_TECNICO_REDESIGN.md"
 tags: ["Julia 1.10", "Sirius / LNLS", "Criogenia", "Modelagem Não-Linear", "Co-Design Termo-Mecânico", "MBSE", "NIST Data"]
@@ -118,10 +118,10 @@ A integração temporal revelou que a constante de tempo do sistema é governada
 O repositório do projeto está configurado com metadados científicos em formato **`CITATION.cff`**, permitindo citação acadêmica em formato BibTeX e APA:
 
 ```bibtex
-@software{Pianca_EMA-C_Cryo_2024,
+@software{Pianca_EMA-C_Cryo_2026,
   author = {Pianca, André Luiz},
   title = {EMA-C_LM-Cryo-Modelling: Modelagem Criogênica e Co-Design Termo-Mecânico da Linha EMA (Sirius/CNPEM)},
-  year = {2024},
+  year = {2026},
   url = {https://github.com/andrlupi/EMA-C_LM-Cryo-Modelling}
 }
 ```
